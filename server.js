@@ -9,6 +9,10 @@ app.set('views', path.join(__dirname, 'views'));
 // Route to use public files
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get("/faq", (req, res) => {
+    res.render("layout/faq")
+})
+
 app.get("/login", (req, res) => {
     res.render('auth/login')
 });

@@ -9,13 +9,12 @@
     z-index: 9;
     opacity: 0; /* Start fully transparent */
     transform: translateY(50px); /* Start below the default position */
-    transition: opacity 1.3s ease-in-out, transform 1.1s ease; /* Animate opacity and position */
+    transition: opacity 1.3s ease-in-out;
 }
 
 /* Final state (visible and in default position) */
 .main-footer.visible {
     opacity: 1;
-    transform: translateY(0); /* Move to the default position */
 }
 
 
