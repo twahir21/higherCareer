@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>404 Not Found</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Smooth Scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Poppins', sans-serif;
+        color: #4a6fa1; /* Bluish text color */
+        overflow: hidden;
+        background-color: #f7f9fc;
+      }
+
+      .container {
+        text-align: center;
+        animation: fadeIn 2s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container h1 {
+        font-size: 3rem; /* Reduced size */
+        margin: 0.5rem 0; /* Added margin for spacing */
+        color: #4a6fa1; /* Bluish color */
+        font-weight: 600;
+      }
+
+      .container p {
+        font-size: 1.2rem;
+        margin: 20px 0;
+        color: #4a6fa1; /* Bluish color */
+      }
+
+      .container a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 20px;
+        font-size: 1.1rem;
+        color: #fff;
+        background: #f78686; /* Reddish background */
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .container a:hover {
+        background: #d32f2f; /* Darker reddish on hover */
+        color: #fff;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .side-image {
+        width: 100%;
+        max-width: 400px; /* Reduced width for better balance */
+        margin-top: 20px;
+        animation: slideIn 1s ease-in-out;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          flex-direction: row;
+          justify-content: center;
+        }
+
+        .container h1 {
+          font-size: 5rem; /* Adjusted font size for larger screens */
+        }
+
+        .side-image {
+          margin-top: 0;
+          margin-left: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1>Page 404</h1>
+        <h1>Not Found</h1>
+        <p>Oops! The page you're looking for doesn't exist.</p>
+        <a href="/">Go Back Home</a>
+      </div>
+      <img
+        alt="404 Error"
+        class="side-image"
+        height="400"
+        src="/images/404.jpg"
+        width="400"
+      />
+    </div>
+  </body>
+</html>

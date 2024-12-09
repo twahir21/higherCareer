@@ -1,0 +1,23 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "\"Higher Career Academy Primary School management System\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "console.log(\"Express is fantastic\")"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twahir21/higherCareer.git"
+  },
+  "author": "Twahir Sudy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/twahir21/higherCareer/issues"
+  },
+  "homepage": "https://github.com/twahir21/higherCareer#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
+}
