@@ -15,12 +15,16 @@
     />
     <style>
       /* Smooth Scroll */
+
+      *{
+        font-family: 'Poppins', sans-serif;
+
+      }
       html {
         scroll-behavior: smooth;
       }
 
-      body,
-      html {
+  .wrapper-404 {
         margin: 0;
         padding: 0;
         width: 100%;
@@ -28,13 +32,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: 'Poppins', sans-serif;
         color: #4a6fa1; /* Bluish text color */
         overflow: hidden;
-        background-color: #f7f9fc;
       }
 
-      .container {
+      .container.link-404 {
         text-align: center;
         animation: fadeIn 2s ease-in-out;
         display: flex;
@@ -42,20 +44,20 @@
         align-items: center;
       }
 
-      .container h1 {
-        font-size: 3rem; /* Reduced size */
+      .container.link-404 h1 {
+        font-size: 2rem; /* Reduced size */
         margin: 0.5rem 0; /* Added margin for spacing */
         color: #4a6fa1; /* Bluish color */
         font-weight: 600;
       }
 
-      .container p {
+      .container.link-404 p {
         font-size: 1.2rem;
         margin: 20px 0;
         color: #4a6fa1; /* Bluish color */
       }
 
-      .container a {
+      .container.link-404 a {
         display: inline-block;
         padding: 10px 20px;
         margin-top: 20px;
@@ -67,7 +69,7 @@
         transition: background 0.3s, color 0.3s;
       }
 
-      .container a:hover {
+      .container.link-404 a:hover {
         background: #d32f2f; /* Darker reddish on hover */
         color: #fff;
       }
@@ -98,37 +100,86 @@
       }
 
       @media (min-width: 768px) {
-        .container {
+        .container.link-404 {
           flex-direction: row;
           justify-content: center;
         }
 
-        .container h1 {
-          font-size: 5rem; /* Adjusted font size for larger screens */
+        .container.link-404 h1 {
+          font-size: 3rem;
         }
 
         .side-image {
           margin-top: 0;
           margin-left: 20px;
+          border-radius: 50%;
         }
       }
+
+      .error-404 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .error-404 .text {
+            font-size: 100px;
+            font-weight: bold;
+            color: #007bff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .error-404 .shadow {
+            font-size: 100px;
+            font-weight: bold;
+            color: #a3d4ff;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .error-404 .text, .error-404 .shadow {
+                font-size: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-404 .text, .error-404 .shadow {
+                font-size: 70px;
+            }
+        }
+
+        .error-404 .text, .error-404 .shadow, .error-404{
+          border: none;
+          background-color: transparent;
+          padding: 10px;
+        }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div>
-        <h1>Page 404</h1>
-        <h1>Not Found</h1>
-        <p>Oops! The page you're looking for doesn't exist.</p>
-        <a href="/">Go Back Home</a>
+    <%- include("../includes/nav.ejs") %>
+    <div class="wrapper-404">
+      <div class="container link-404">
+        <div>
+          <div class="error-404">
+            <div class="shadow">Oops...!</div>
+            <div class="text">Oops...!</div>
+          </div>
+          <h1>Page Not Found</h1>
+          <p>Oops! The page you're looking for doesn't exist.</p>
+          <a href="/" class="link-404">Go Back Home</a>
+        </div>
+        <img
+          alt="404 Error"
+          class="side-image"
+          height="400"
+          src="/images/404.jpg"
+          width="400"
+        />
       </div>
-      <img
-        alt="404 Error"
-        class="side-image"
-        height="400"
-        src="/images/404.jpg"
-        width="400"
-      />
     </div>
+    <%- include("../includes/footer") %>
   </body>
 </html>

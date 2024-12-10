@@ -9,6 +9,18 @@ app.set('views', path.join(__dirname, 'views'));
 // Route to use public files
 app.use(express.static(path.join(__dirname, 'public')));
 
+// File download route
+app.get('/download/joining-primary', (req, res) => {
+    const file = path.join(__dirname, 'downloads', 'joining-Primary.doc');
+    res.download(file, 'Joining-Primary.doc', (err) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Error downloading file');
+      }
+    });
+  });
+  
+
 app.get("/faq", (req, res) => {
     res.render("layout/faq")
 })
@@ -28,6 +40,14 @@ app.get("/teacher-register", (req, res) => {
 // Route to render the 'main' view
 app.get('/', (req, res) => {
     res.render("index");
+});
+
+app.get("/vision", (req, res) => {
+    res.render("layout/vision")
+})
+
+app.use((req, res) => {
+    res.render("errors/404")
 });
 
 // Start the server
