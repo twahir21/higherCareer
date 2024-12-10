@@ -14,6 +14,10 @@ const publicRouter = require("./router/public");
 
 
 // Router usage
+app.get("/login", (req, res) => {
+    res.render('auth/login')
+});
+
 // keep public router the last
 app.use(publicRouter);
 
@@ -28,11 +32,6 @@ app.get('/download/joining-primary', (req, res) => {
     });
   });
   
-
-app.get("/login", (req, res) => {
-    res.render('auth/login')
-});
-
 // Start the server
 app.listen(3000, () => {
     console.log('Server running on http://localhost:3000');
