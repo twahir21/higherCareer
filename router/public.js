@@ -19,6 +19,10 @@ publicRouter.get("/vision", (req, res) => {
     res.render("layout/vision")
 });
 
+publicRouter.get("/news&announcements", (req, res) => {
+    res.render(("layout/news"))
+});
+
 publicRouter.get('/', (req, res) => {
     res.render("index");
 });
