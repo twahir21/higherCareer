@@ -11,6 +11,53 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user-graduate"></i>
+                        <p>
+                            Student Management
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <li class="nav-item">
+                            <a href="/student-management/view" class="nav-link">
+                                <i class="fas fa-eye nav-icon"></i>
+                                <p>View All Students</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/student-management/add" class="nav-link">
+                                <i class="fas fa-plus nav-icon"></i>
+                                <p>Add New Student</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/student-management/edit" class="nav-link">
+                                <i class="fas fa-pen nav-icon"></i>
+                                <p>Edit Student</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const treeviewItems = document.querySelectorAll('.nav-item.has-treeview > a');
+treeviewItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        const treeviewMenu = this.nextElementSibling;
+        if (treeviewMenu.style.display === 'block') {
+            treeviewMenu.style.display = 'none';
+        } else {
+            treeviewMenu.style.display = 'block';
+        }
+    });
+});
+});
+</script>
+                
             </ul>
         </nav>
     </div>
