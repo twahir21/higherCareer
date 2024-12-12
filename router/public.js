@@ -23,6 +23,10 @@ publicRouter.get("/news&announcements", (req, res) => {
     res.render(("layout/news"))
 });
 
+publicRouter.get("/admin", (req, res) => {
+    res.render("admin/index")
+})
+
 publicRouter.get('/', (req, res) => {
     res.render("index");
 });
