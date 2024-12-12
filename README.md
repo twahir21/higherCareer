@@ -1,5 +1,3 @@
-# ------ Read this document carefully to understand my School management system ------
-
 # HigherCareer
 
 HigherCareer is a comprehensive Primary School Management System designed to streamline and simplify school administration tasks. This system provides essential features to manage students, parents, teachers, classes, subjects, fees, and generate reports efficiently. It is tailored to meet the needs of primary schools with a focus on usability and effectiveness.
