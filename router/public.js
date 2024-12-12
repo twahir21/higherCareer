@@ -27,6 +27,10 @@ publicRouter.get("/admin", (req, res) => {
     res.render("admin/index")
 })
 
+publicRouter.get("/student/view", (req, res) => {
+    res.render("admin/student/view_std")
+})
+
 publicRouter.get('/', (req, res) => {
     res.render("index");
 });
