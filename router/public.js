@@ -23,12 +23,8 @@ publicRouter.get("/news&announcements", (req, res) => {
     res.render(("layout/news"))
 });
 
-publicRouter.get("/admin", (req, res) => {
-    res.render("admin/index")
-})
-
-publicRouter.get("/student/view", (req, res) => {
-    res.render("admin/student/view_std")
+publicRouter.get("/primary-fees", (req, res) => {
+    res.render("layout/primary-fees")
 })
 
 publicRouter.get('/', (req, res) => {
