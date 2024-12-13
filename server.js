@@ -20,13 +20,11 @@ app.use('/static', express.static('public', {
 
 // Routers imports
 const publicRouter = require("./router/public");
+const adminRouter = require("./router/admin");
 
 
 // Router usage
-app.get("/login", (req, res) => {
-    res.render('auth/login')
-});
-
+app.use(adminRouter);
 // keep public router the last
 app.use(publicRouter);
 

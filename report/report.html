@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Reports</title>
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="report.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Reports</h1>
+        </header>
+        
+        <div class="filters">
+            <input type="text" id="searchInput" placeholder="Search by student name..." />
+            <select id="classFilter">
+                <option value="">All Classes</option>
+                <option value="Class 1">Class 1</option>
+                <option value="Class 2">Class 2</option>
+                <option value="Class 3">Class 3</option>
+                <option value="Class 4">Class 4</option>
+            </select>
+            <select id="reportType">
+                <option value="all">All Reports</option>
+                <option value="academic">Academic Reports</option>
+                <option value="attendance">Attendance Reports</option>
+            </select>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Class</th>
+                        <th>Report Type</th>
+                        <th>Details</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="reportTableBody">
+                    <!-- Rows will be dynamically added -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <button onclick="prevPage()">Previous</button>
+            <span id="pageInfo"></span>
+            <button onclick="nextPage()">Next</button>
+        </div>
+    </div>
+
+    <script src="report.js"></script>
+</body>
+</html>
