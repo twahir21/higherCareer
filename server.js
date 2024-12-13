@@ -21,10 +21,12 @@ app.use('/static', express.static('public', {
 // Routers imports
 const publicRouter = require("./router/public");
 const adminRouter = require("./router/admin");
+const authRouter = require("./router/auth")
 
 
 // Router usage
 app.use(adminRouter);
+app.use(authRouter);
 // keep public router the last
 app.use(publicRouter);
 
