@@ -18,6 +18,10 @@ publicRouter.get("/primary-fees", (req, res) => {
     res.render("layout/primary-fees")
 })
 
+publicRouter.get("/nursery-fees", (req, res) => {
+    res.render("layout/nursery-fees")
+})
+
 publicRouter.get('/', (req, res) => {
     res.render("index");
 });

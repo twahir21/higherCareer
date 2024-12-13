@@ -1,6 +1,7 @@
 .fees-header {
     text-align: center;
-    background: #007BFF;
+    background: linear-gradient(135deg, #007bff, #00d2ff);
+
     color: white;
     padding: 2rem 0;
     animation: fadeIn 1s ease-in-out;
