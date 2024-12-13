@@ -32,6 +32,7 @@ body {
     margin-top: -70px;
     padding-top: 70px;
     position: relative;
+    caret-color: transparent;
     overflow: hidden;
 }
 
@@ -207,6 +208,7 @@ body {
 .features-section {
     padding: 5rem 0;
     background-color: #f8f9fa;
+    caret-color: transparent;
 }
 
 .features-grid {
@@ -226,6 +228,7 @@ body {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    caret-color: transparent;
 }
 
 .feature-card::before {
@@ -245,6 +248,7 @@ body {
 .why-choose-section {
     padding: 5rem 0;
     background-color: #ffffff;
+    caret-color: transparent;
 }
 
 .why-choose-grid {
@@ -533,6 +537,7 @@ body {
 .stats-section {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     padding: 5rem 2rem;
+    caret-color: transparent;
     color: white;
 }
 
@@ -772,6 +777,7 @@ body {
 .announcements-section {
     padding: 4rem 2rem;
     background-color: #f8f9fa;
+    caret-color: transparent;
 }
 
 .announcements-container {
@@ -1164,6 +1170,7 @@ body {
 
     .footer-section {
         width: 100%;
+        caret-color: transparent;
         margin-bottom: 30px;
         text-align: center;
     }
@@ -1193,6 +1200,7 @@ body {
 /* Map Section Styles */
 .map-section {
     padding: 6rem 2rem;
+    caret-color: transparent;
     background: white;
 }
 

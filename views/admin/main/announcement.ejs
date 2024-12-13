@@ -1,3 +1,16 @@
+<!-- Announcements  -->
+<style>
+    .list-group-item{
+        caret-color: transparent;
+        cursor: pointer;
+    }
+
+    .list-group-item:hover{
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+    }
+</style>
 <div class="col-md-6">
     <div class="card shadow-sm">
         <div class="card-header bg-primary text-white d-flex align-items-center">
@@ -18,3 +31,16 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    const announcements = document.querySelectorAll(".list-group-item");
+
+    announcements.forEach(
+        announcement => {
+            announcement.addEventListener("click", () => {
+                alert("Announcement is clicked!")
+            })
+        }
+    )
+</script>
