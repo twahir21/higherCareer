@@ -22,6 +22,15 @@ publicRouter.get("/nursery-fees", (req, res) => {
     res.render("layout/nursery-fees")
 })
 
+publicRouter.get("/contact-us", (req, res) => {
+    res.render("layout/contact-us")
+})
+
+
+publicRouter.get("/about-us", (req, res) => {
+    res.render("layout/about")
+})
+
 publicRouter.get('/', (req, res) => {
     res.render("index");
 });
