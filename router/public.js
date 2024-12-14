@@ -26,6 +26,16 @@ publicRouter.get("/contact-us", (req, res) => {
     res.render("layout/contact-us")
 })
 
+publicRouter.get("/privacy-policy", (req, res) => {
+    res.render("layout/privacy")
+})
+
+publicRouter.get("/terms", (req, res) => {
+    res.render("layout/terms")
+})
+
+
+
 
 publicRouter.get("/about-us", (req, res) => {
     res.render("layout/about")

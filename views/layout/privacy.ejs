@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .privacy-policy-container {
+            margin: 10px 20px;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Header styling */
+        header.privacy-header{
+            background-color: transparent;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+        .privacy-header-title {
+            font-size: 2rem;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+
+        .privacy-header-updated {
+            font-size: 0.9rem;
+            color: #4d4a4a;
+        }
+
+        /* Section styling */
+        .content-section {
+            margin-top: 20px;
+        }
+
+        .content-section-title {
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .content-section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            margin-top: 5px;
+        }
+
+        .content-subtitle {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            color: #003366;
+        }
+
+        .content-subsubtitle {
+            font-size: 1rem;
+            margin-top: 10px;
+            color: #4CAF50;
+        }
+
+        /* Styling for custom list items */
+        .custom-list {
+            padding: 0;
+            margin: 0;
+        }
+
+        .custom-list-item {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .column{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .custom-strong{
+            font-weight: bold;
+        }
+
+        .custom-list-icon {
+            margin-right: 10px;
+            color: #FF9800;
+            font-size: 1.2rem;
+        }
+
+        .custom-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .custom-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .privacy-policy-container {
+                padding: 15px;
+            }
+
+            .content-section-title {
+                font-size: 1.3rem;
+            }
+
+            .content-subtitle {
+                font-size: 1rem;
+            }
+
+
+
+            .content-subsubtitle {
+                font-size: 0.9rem;
+            }
+
+            .custom-list-item {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <%- include("../includes/nav") %>
+
+    <section class="privacy-policy-container">
+        <header class="privacy-header">
+            <h1 class="privacy-header-title"><i class="fas fa-shield-alt"></i> Privacy Policy</h1>
+            <p class="privacy-header-updated"><strong>Last updated:</strong> December 13, 2024</p>
+        </header>
+        <article class="content">
+            <section class="content-section">
+                <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>
+                <p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. </p>
+            </section>
+            
+            <section class="content-section">
+                <h2 class="content-section-title"><i class="fas fa-book"></i> Definitions</h2>
+                <div class="custom-list">
+                    <div class="custom-list-item"><i class="custom-list-icon fas fa-user"></i> <strong style="padding-right: 5px;">Account:</strong> A unique profile created for accessing our service.</div>
+                    <div class="custom-list-item"><i class="custom-list-icon fas fa-cookie"></i> <strong style="padding-right: 5px;">Cookies:</strong> Small files stored on your device for tracking website activity.</div>
+                    <div class="custom-list-item"><i class="custom-list-icon fas fa-globe"></i> <strong style="padding-right: 5px;">Website:</strong> Higher Career Academy accessible at <a href="https://highercareer.academy" target="_blank" class="custom-link">our website</a>.</div>
+                    <div class="custom-list-item"><i class="custom-list-icon fas fa-flag"></i> <strong style="padding-right: 5px;">Country</strong> refers to:  Tanzania.</div>
+                    <div class="custom-list-item"><i class="custom-list-icon fas fa-laptop"></i> <strong style="padding-right: 5px;">Device:</strong> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="content-section-title"><i class="fas fa-user-shield"></i> Data Collection</h2>
+                <h4 class="content-subsubtitle">Types of Data</h4>
+                <div class="custom-list">
+                    <div class="custom-list-item"><i class="custom-list-icon fas fa-envelope"></i> Email Address</div>
+                    <div class="custom-list-item"><i class="custom-list-icon fas fa-user"></i> Name</div>
+                    <div class="custom-list-item"><i class="custom-list-icon fas fa-phone"></i> Phone Number</div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="content-section-title"><i class="fas fa-database"></i> Usage Data</h2>
+                <h4 class="content-subsubtitle">Usage Data</h4>
+                <p>Usage Data is collected automatically when using the Service.</p>
+                <p>Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
+                <p>When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.</p>
+                <p>We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p>
+
+                <h4 class="content-subsubtitle">Tracking Technologies and Cookies</h4>
+                <p>We use Cookies and similar tracking technologies to track the activity on Our Service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze Our Service. The technologies We use may include:</p>
+                <div class="custom-list">
+                    <div class="custom-list-item column"><span class="custom-strong">Cookies or Browser Cookies:</span> A cookie is a small file placed on Your Device. You can instruct Your browser to refuse all Cookies or to indicate when a Cookie is being sent. However, if You do not accept Cookies, You may not be able to use some parts of our Service. Unless you have adjusted Your browser setting so that it will refuse Cookies, our Service may use Cookies.</div>
+                    <div class="custom-list-item column"><span class="custom-strong">Web Beacons:</span> Certain sections of our Service and our emails may contain small electronic files known as web beacons (also referred to as clear gifs, pixel tags, and single-pixel gifs) that permit the Company, for example, to count users who have visited those pages or opened an email and for other related website statistics (for example, recording the popularity of a certain section and verifying system and server integrity).</div>
+                </div>
+                <p>Cookies can be "Persistent" or "Session" Cookies. Persistent Cookies remain on Your personal computer or mobile device when You go offline, while Session Cookies are deleted as soon as You close Your web browser. Learn more about cookies on the <a href="https://www.freeprivacypolicy.com/blog/sample-privacy-policy-template/#Use_Of_Cookies_And_Tracking" target="_blank" class="custom-link">Free Privacy Policy website</a> article.</p>
+                <p>We use both Session and Persistent Cookies for the purposes set out below:</p>
+                <div class="custom-list">
+                    <div class="custom-list-item column"><span class="custom-strong">Necessary / Essential Cookies:</span> These Cookies are essential to provide You with services available through the Website and to enable You to use some of its features. They help to authenticate users and prevent fraudulent use of user accounts. Without these Cookies, the services that You have asked for cannot be provided, and We only use these Cookies to provide You with those services.</div>
+                    <div class="custom-list-item column"><span class="custom-strong">Cookies Policy / Notice Acceptance Cookies:</span> These Cookies identify if users have accepted the use of cookies on the Website.</div>
+                    <div class="custom-list-item column"><span class="custom-strong">Functionality Cookies:</span> These Cookies allow us to remember choices You make when You use the Website, such as remembering your login details or language preference. The purpose of these Cookies is to provide You with a more personal experience and to avoid You having to re-enter your preferences every time You use the Website.</div>
+                </div>
+                <p>For more information about the cookies we use and your choices regarding cookies, please visit our Cookies Policy or the Cookies section of our Privacy Policy.</p>
+            </section>
+
+            <section class="content-section">
+                <h2 class="content-section-title"><i class="fas fa-user-cog"></i> Use of Your Personal Data</h2>
+                <p>The Company may use Personal Data for the following purposes:</p>
+                <div class="custom-list">
+                    <div class="custom-list-item column"><span class="custom-strong">To provide and maintain our Service:</span> including to monitor the usage of our Service.</div>
+                    <div class="custom-list-item column"><span class="custom-strong">To manage Your Account:</span> to manage Your registration as a user of the Service. The Personal Data You provide can give You access to different functionalities of the Service that are available to You as a registered user.</div>
+                    <div class="custom-list-item column"><span class="custom-strong">For the performance of a contract:</span> the development, compliance and undertaking of the purchase contract for the products, items or services You have purchased or of any other contract with Us through the Service.</div>
+                    <div class="custom-list-item column"><span class="custom-strong">To contact You:</span> To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile application's push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.</div>
+                    <div class="custom-list-item column"><span class="custom-strong">To provide You:</span> with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information.</div>
+                    <div class="custom-list-item column"><span class="custom-strong">To manage Your requests:</span> To attend and manage Your requests to Us.</div>
+                    <div class="custom-list-item column"><span class="custom-strong">For business transfers:</span> We may use Your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which Personal Data held by Us about our Service users is among the assets transferred.</div>
+                    <div class="custom-list-item column"><span class="custom-strong">For other purposes:</span> We may use Your information for other purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Service, products, services, marketing and your experience.</div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="content-section-title"><i class="fas fa-phone-alt"></i> Contact Us</h2>
+                <div class="custom-list">
+                    <div class="custom-list-item"><i class="custom-list-icon fas fa-envelope"></i> Email: <a href="mailto:info@highercareer.academy" class="custom-link">info@highercareer.academy</a></div>
+                    <div class="custom-list-item"><i class="custom-list-icon fas fa-globe"></i> Website: <a href="https://highercareer.academy/contact" target="_blank" class="custom-link">Contact Us</a></div>
+                </div>
+            </section>
+        </article>
+    </section>
+
+    <%- include("../includes/footer") %>
+</body>
+</html>
