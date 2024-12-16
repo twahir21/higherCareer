@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher Career Academy - Joining Form</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #00d2ff, #ffffff);
+
+            color: #333;
+        }
+        .joining-head {
+            color: #2c3e50;
+            padding: 20px;
+            text-align: center;
+        }
+        .container.join {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .section-title {
+            font-size: 20px;
+            margin: 20px 0 10px;
+            color: #007bff;
+            display: flex;
+            align-items: center;
+        }
+        .section-title i {
+            margin-right: 10px;
+        }
+        .joining-text, .joining-list {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .joining-list {
+            padding-left: 20px;
+        }
+        .joining-list .joining-info{
+            margin-bottom: 10px;
+        }
+        .download-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .download-btn {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .download-btn:hover {
+            background: #0056b3;
+        }
+
+          
+  .step {
+    background: #F5F5F5;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-left: 4px solid #007bff;
+    opacity: 0; /* Initially hidden */
+    transform: translateX(-100%); /* Initially off-screen */
+    animation: slideIn 0.5s ease-in-out forwards;
+  }
+  
+   .step:nth-child(1) {
+    animation-delay: 0s; /* First step appears immediately */
+  }
+  
+   .step:nth-child(2) {
+    animation-delay: 0.5s; /* Second step after a delay */
+  }
+  
+  .step:nth-child(3) {
+    animation-delay: 1s; /* Third step after a delay */
+  }
+  
+  .step:nth-child(4) {
+    animation-delay: 1.5s; /* Fourth step after a delay */
+  }
+
+  .step:nth-child(5) {
+    animation-delay: 2s; /* Fourth step after a delay */
+  }
+
+  @keyframes slideIn {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+        @media (max-width: 768px) {
+            .container.join {
+                padding: 15px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <%- include("../includes/nav.ejs") %>
+
+    <div class="container join">
+        <h1 class="joining-head"><i class="fas fa-school"></i> Primary Joining Form</h1>
+
+        <h2 class="section-title"><i class="fas fa-info-circle"></i> Instructions</h2>
+        <p class="joining-text">Fill out this form using uppercase letters only. Ensure all fields are completed and attach the required documents as outlined. Here is a sample details which maybe needed but download the real primary joining instruction below.</p>
+
+        <div class="step">
+            <h2 class="section-title"><i class="fas fa-user"></i> Personal Information</h2>
+            <ul class="joining-list">
+                <li class="joining-info"><strong>Student Name:</strong> __________________________</li>
+                <li class="joining-info"><strong>Date of Birth:</strong> __________________________</li>
+                <li class="joining-info"><strong>Gender:</strong> Male / Female</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2 class="section-title"><i class="fas fa-school"></i> Previous School Information</h2>
+            <ul>
+                <li><strong>School Name:</strong> __________________________</li>
+                <li><strong>Year Joined:</strong> __________________________</li>
+                <li><strong>Class Reached:</strong> __________________________</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2 class="section-title"><i class="fas fa-user-tie"></i> Parent/Guardian Information</h2>
+            <ul> 
+                <li><strong>Full Name:</strong> __________________________</li>
+                <li><strong>Address:</strong> __________________________</li>
+                <li><strong>Phone Number:</strong> __________________________</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2 class="section-title"><i class="fas fa-file-alt"></i> Required Attachments</h2>
+            <ul>
+                <li>Copy of birth certificate</li>
+                <li>Two passport-sized photos</li>
+                <li>Transfer letter from previous school</li>
+                <li>Progress report from previous school</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title"><i class="fas fa-money-bill-wave"></i> Payment Details</h2>
+        <p>Payments are to be made through PBZ Islamic Bank, account number <strong>0726551001</strong> under the name "AB Higher Career Academic Ltd." Ensure to present the payment slip at our office for receipt issuance. No payments will be accepted at the school.</p>
+
+        <h2 class="section-title"><i class="fas fa-balance-scale"></i> Terms and Conditions</h2>
+        <p>By submitting this form, you agree to abide by the school's rules and regulations, including:</p>
+        <ul>
+            <li>Timely payment of fees</li>
+            <li>Ensuring the student adheres to the school's discipline and uniform policy</li>
+            <li>Attending all parent meetings when called</li>
+        </ul>
+
+        <div class="download-section">
+            <a href="/mnt/data/joining-Primary.doc" download class="download-btn"><i class="fas fa-download"></i> Download Form</a>
+        </div>
+    </div>
+    <%- include("../includes/footer.ejs") %>
+</body>
+</html>

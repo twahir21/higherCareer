@@ -107,6 +107,7 @@
     width: 100%;
     max-width: 400px;
     background: linear-gradient(135deg, #4a90e2, #50c9c3);
+    caret-color: transparent;
     padding: 20px;
     border: none;
     border-radius: 6px;

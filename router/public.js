@@ -34,6 +34,14 @@ publicRouter.get("/terms", (req, res) => {
     res.render("layout/terms")
 })
 
+publicRouter.get("/nursery-join", (req, res) => {
+    res.render("layout/nursery-join")
+})
+publicRouter.get("/primary-join", (req, res) => {
+    res.render("layout/primary-join")
+})
+
+
 
 
 
