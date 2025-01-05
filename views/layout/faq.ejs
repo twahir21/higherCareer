@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - HigherCareer System</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/faq.css">
+</head>
+<body>
+    <%- include("../includes/nav") %>
+
+    <div class="faq-container">
+        
+        <div class="title">
+            <h2>❓ Frequently Asked Questions</h2>
+            <p>Find answers to common questions about the HigherCareer system, or <a href="#">contact our support</a></p>
+
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+    
+                <input type="search" name="search" id="search"  placeholder="Search ...">
+            </div>
+        </div>
+
+
+
+
+        <main class="main-content">
+            <section class="faq-section">
+                <div class="faq-item" data-expanded="false">
+                    <div class="faq-question">
+                        <h3>How do I add a new student?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To add a new student, go to the "Manage Students" section, click on "Add Student," and fill out the required details.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-expanded="false">
+                    <div class="faq-question">
+                        <h3>How can I view fee collection details?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Navigate to the "Fee Management" section to view details on collected and pending fees.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-expanded="false">
+                    <div class="faq-question">
+                        <h3>How do I reset my password?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Go to your profile settings and click "Reset Password." Follow the instructions to update your password securely.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-expanded="false">
+                    <div class="faq-question">
+                        <h3>How do I generate student reports?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To generate reports, go to "Student Reports" and choose the type of report (academic or attendance). You can customize filters as needed.</p>
+                    </div>
+                </div>
+
+                <h4>Still can't find your answer?</h4>
+                <p class="happy">We are happy to help</p>
+                <button><i class="fa-solid fa-message"></i> Chat with us</button>
+            </section>
+        </main>
+    </div>
+    <%- include("../includes/footer.ejs") %>
+    <script src="/js/faq.js"></script>
+</body>
+</html>

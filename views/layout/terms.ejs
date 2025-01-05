@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions</title>
+    <style>
+        body.terms-body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #D6CFB4, #FFF8E6);
+            color: #333;
+        }
+        header.terms-header {
+            background: #c2e59c;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #64b3f4, #c2e59c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+            color: white;
+            padding: 20px;
+            text-align: center;
+            animation: terms-slideInDown 1s ease-out;
+        }
+        .terms-container {
+            padding: 20px;
+            background: #FDF7F4;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: terms-fadeIn 2s ease-in;
+        }
+        h2.terms-subtitle {
+            color: #007bff;
+            padding-bottom: 12px;
+        }
+
+        h1.terms-main-title{
+            color: #525e6a;
+            text-align: center;
+            padding-bottom: 12px;
+        }
+        h2.terms-subtitle {
+            margin-top: 40px;
+        }
+        p.terms-text {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        p.terms-highlight>strong {
+            color: #2c3e50;
+        }
+        ul.terms-list {
+            margin-left: 20px;
+        }
+        ul.terms-list li.terms-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        ul.terms-list li.terms-item i {
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        /* Animations */
+        @keyframes terms-slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes terms-fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .terms-fade-in {
+            animation: terms-fadeIn 1.5s ease-in;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="terms-body">
+    <%- include("../includes/nav") %>
+    <header class="terms-header">
+        <h1 class="terms-main-title terms"><i class="fas fa-file-contract"></i> Terms and Conditions</h1>
+    </header>
+    <div class="terms-container">
+        <h2 class="terms-subtitle"><i class="fas fa-handshake"></i> Welcome to Our Website</h2>
+        <p class="terms-text terms-fade-in">These terms and conditions outline the rules and regulations for the use of our website. By accessing this website, we assume you accept these terms and conditions. Do not continue to use the site if you do not agree to all the terms and conditions stated here.</p>
+
+        <h2 class="terms-subtitle"><i class="fas fa-copyright"></i> License</h2>
+        <p class="terms-text terms-fade-in">Unless otherwise stated, we or our licensors own the intellectual property rights for all material on this website. All intellectual property rights are reserved. You may access this from the website for your personal use, subject to restrictions set in these terms and conditions.</p>
+
+        <h2 class="terms-subtitle"><i class="fas fa-ban"></i> Restrictions</h2>
+        <p class="terms-text terms-fade-in">You are specifically restricted from all of the following:</p>
+        <ul class="terms-list terms-fade-in">
+            <li class="terms-item"><i class="fas fa-print"></i> Publishing any website material in any other media</li>
+            <li class="terms-item"><i class="fas fa-dollar-sign"></i> Selling, sublicensing, and/or otherwise commercializing any website material</li>
+            <li class="terms-item"><i class="fas fa-play"></i> Publicly performing and/or showing any website material</li>
+            <li class="terms-item"><i class="fas fa-exclamation-circle"></i> Using this website in any way that is or may be damaging to this website</li>
+            <li class="terms-item"><i class="fas fa-user-lock"></i> Using this website in any way that impacts user access to this website</li>
+        </ul>
+
+        <h2 class="terms-subtitle"><i class="fas fa-exclamation-triangle"></i> Disclaimer</h2>
+        <p class="terms-text terms-fade-in">The information on this website is provided "as is," with no guarantees of completeness, accuracy, or timeliness. We will not be held liable for any issues arising from the use of the website.</p>
+
+        <h2 class="terms-subtitle">Interpretation and Definitions</h2>
+        <h3 class="terms-subheader">Interpretation</h3>
+        <p class="terms-text">The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+
+
+
+        <h2 class="terms-subtitle">Acknowledgment</h2>
+        <p class="terms-text">These are the Terms and Conditions governing the use of this Service and the agreement that operates between You and the Company. These Terms and Conditions set out the rights and obligations of all users regarding the use of the Service.</p>
+        <p class="terms-text">Your access to and use of the Service is conditioned on Your acceptance of and compliance with these Terms and Conditions. These Terms and Conditions apply to all visitors, users and others who access or use the Service.</p>
+        <p class="terms-text">By accessing or using the Service You agree to be bound by these Terms and Conditions. If You disagree with any part of these Terms and Conditions then You may not access the Service.</p>
+        <p class="terms-text">You represent that you are over the age of 18. The Company does not permit those under 18 to use the Service.</p>
+        <p class="terms-text">Your access to and use of the Service is also conditioned on Your acceptance of and compliance with the Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your personal information when You use the Application or the Website and tells You about Your privacy rights and how the law protects You. Please read Our Privacy Policy carefully before using Our Service.</p>
+
+        <h2 class="terms-subtitle">Links to Other Websites</h2>
+        <p class="terms-text">Our Service may contain links to third-party web sites or services that are not owned or controlled by the Company.</p>
+        <p class="terms-text">The Company has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that the Company shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
+        <p class="terms-text">We strongly advise You to read the terms and conditions and privacy policies of any third-party web sites or services that You visit.</p>
+
+        <h2 class="terms-subtitle">Termination</h2>
+        <p class="terms-text">We may terminate or suspend Your access immediately, without prior notice or liability, for any reason whatsoever, including without limitation if You breach these Terms and Conditions.</p>
+        <p class="terms-text">Upon termination, Your right to use the Service will cease immediately.</p>
+
+        <h2 class="terms-subtitle">Limitation of Liability</h2>
+        <p class="terms-text">Notwithstanding any damages that You might incur, the entire liability of the Company and any of its suppliers under any provision of this Terms and Your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by You through the Service or 100 USD if You haven't purchased anything through the Service.</p>
+        <p class="terms-text">To the maximum extent permitted by applicable law, in no event shall the Company or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, loss of data or other information, for business interruption, for personal injury, loss of privacy arising out of or in any way related to the use of or inability to use the Service, third-party software and/or third-party hardware used with the Service, or otherwise in connection with any provision of this Terms), even if the Company or any supplier has been advised of the possibility of such damages and even if the remedy fails of its essential purpose.</p>
+        <p class="terms-text">Some states do not allow the exclusion of implied warranties or limitation of liability for incidental or consequential damages, which means that some of the above limitations may not apply. In these states, each party's liability will be limited to the greatest extent permitted by law.</p>
+
+        <h2 class="terms-subtitle">"AS IS" and "AS AVAILABLE" Disclaimer</h2>
+        <p class="terms-text">The Service is provided to You "AS IS" and "AS AVAILABLE" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on behalf of its Affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the Service, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice. Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no representation of any kind that the Service will meet Your requirements, achieve any intended results, be compatible or work with any other software, applications, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.
+
+        Without limiting the foregoing, neither the Company nor any of the company's provider makes any representation or warranty of any kind, express or implied: (i) as to the operation or availability of the Service, or the information, content, and materials or products included thereon; (ii) that the Service will be uninterrupted or error-free; (iii) as to the accuracy, reliability, or currency of any information or content provided through the Service; or (iv) that the Service, its servers, the content, or e-mails sent from or on behalf of the Company are free of viruses, scripts, trojan horses, worms, malware, timebombs or other harmful components.
+
+        Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. But in such a case the exclusions and limitations set forth in this section shall be applied to the greatest extent enforceable under applicable law.</p>
+    </div>
+    <%- include("../includes/footer") %>
+
+</body>
+</html>

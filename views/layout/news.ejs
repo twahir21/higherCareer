@@ -1,0 +1,105 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News and Announcements</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+    <style>
+        *{
+            font-family: "Poppins", sans-serif;
+
+        }
+
+        body{
+            background: linear-gradient(to top, #ebf0f4, #D9EAFD);
+        }
+        .news-wrapper{
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container.info {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+        .news {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .news-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .news-item:hover {
+            transform: translateY(-12px);
+        }
+        .news-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .news-item h3 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin: 15px;
+        }
+        .news-item p {
+            font-size: 1rem;
+            margin: 15px;
+        }
+        .read-more {
+            display: inline-block;
+            margin: 0 15px 15px;
+            padding: 10px 15px;
+            background: linear-gradient(to top, #ff6b6b, #ff8e53); /* Different color scheme */
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background .6s ease;
+        }
+        .read-more:hover {
+            background: linear-gradient(to bottom, #007bff, #00c6ff);
+        }
+    </style>
+</head>
+<body>
+
+    <%- include("../includes/nav") %>
+    <div class="news-wrapper">
+        
+    <div class="container info">
+        <div class="news">
+            <!-- News Item 1 -->
+            <div class="news-item">
+                <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop" alt="News 1">
+                <h3>Exciting School Trip Announced!</h3>
+                <p>Join us for a thrilling adventure to the National Park. Don’t miss out on this exciting opportunity!</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <!-- News Item 2 -->
+            <div class="news-item">
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop" alt="News 2">
+                <h3>New Semester Begins</h3>
+                <p>We are excited to welcome all students back to school. Let’s make this semester the best one yet!</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+            <!-- News Item 3 -->
+            <div class="news-item">
+                <img src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?crop=entropy&cs=tinysrgb&w=400&h=300&fit=crop" alt="News 3">
+                <h3>Parent-Teacher Meeting Scheduled</h3>
+                <p>Parents, mark your calendars! Join us for an important discussion on your child’s progress.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <%- include("../includes/footer") %>
+</body>
+</html>

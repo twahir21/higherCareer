@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parent Registration</title>
+  <link rel="icon" type="image/x-icon" href="/images/logo.ico">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/parent-register.css">
+</head>
+<body>
+  <%- include("../includes/nav") %>
+  <div class="register-container">
+    <div class="wrapper">
+      <div class="register-form">
+        <h2>Parent Registration</h2>
+        <form>
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Full Name" required>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email Address" required>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-phone"></i>
+            <input type="tel" placeholder="Phone Number" required>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-users"></i>
+            <input type="text" placeholder="Relationship to Student" required>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-child"></i>
+            <input type="text" placeholder="Student Full Name" required>
+          </div>
+          <div class="input-group select-group">
+            <i class="fas fa-school"></i>
+            <select required>
+              <option value="" disabled selected>Choose Student Class</option>
+              <option value="kg1">KG1 (Nursery)</option>
+              <option value="kg2">KG2 (Nursery)</option>
+              <option value="standard1">Standard 1</option>
+              <option value="standard2">Standard 2</option>
+              <option value="standard3">Standard 3</option>
+              <option value="standard4">Standard 4</option>
+              <option value="standard5">Standard 5</option>
+              <option value="standard6">Standard 6</option>
+              <option value="standard7">Standard 7</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" required>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Confirm Password" required>
+          </div>
+          <button type="submit" class="btn">Register</button>
+        </form>
+      </div>
+      <div class="register-banner">
+        <h1>Welcome Parents!</h1>
+        <img src="/images/girl-reading.jpg" alt="Parent" loading="lazy" class="person-image">
+        <p>Create an account to track your child's progress and stay informed about school activities.</p>
+      </div>
+    </div>
+  </div>
+  <%- include("../includes/footer") %>
+</body>
+</html>

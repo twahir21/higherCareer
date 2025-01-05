@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/images/logo.ico">
+  <title>Login Page</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+  <%- include("../includes/nav") %>
+    <div class="login-container">
+      <div class="wrapper">
+        <div class="login-form">
+          <h2>Login</h2>
+          <form>
+            <div class="input-group">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <p class="forgot-password">
+              <a href="#">Forgot Password?</a>
+            </p>
+          </form>
+        </div>
+        <div class="login-banner">
+          <h1>Welcome Back!</h1>
+          <img src="/images/login.jpg" alt="User" loading="lazy" class="person-image">
+
+          <p>Login to access your account and manage your dashboard efficiently.</p>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  <%- include("../includes/footer") %>
+</body>
+</html>
