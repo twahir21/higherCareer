@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image</title>
+    <style>
+        /* Ensure the image is responsive */
+        .serverError > img {
+            max-width: 94%;
+            height: auto;
+            display: block; /* Prevents extra space below the image */
+        }
+        
+        .serverError{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+    </style>
+
+</head>
+<body>
+    <%- include("../includes/nav") %>
+    <div class="serverError">
+        <h1>Internal Server Error!</h1>
+        <img src="images/500.png" alt="Responsive Image">
+    </div>
+    <%- include("../includes/footer") %>
+</body>
+</html>

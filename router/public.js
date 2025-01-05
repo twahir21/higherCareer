@@ -53,8 +53,6 @@ publicRouter.get('/', (req, res) => {
     res.render("index");
 });
 
-publicRouter.use((req, res) => {
-    res.render("errors/404");
-});
+
 
 module.exports = publicRouter;

@@ -64,7 +64,7 @@
         margin-top: 20px;
         font-size: 1.1rem;
         color: #fff;
-        background: #f78686; /* Reddish background */
+        background: #85a2f1; 
         border-radius: 5px;
         text-decoration: none;
         transition: background 0.3s, color 0.3s;
@@ -74,6 +74,15 @@
         background: #d32f2f; /* Darker reddish on hover */
         color: #fff;
       }
+
+      .error-404 .text, .error-404 .shadow, .error-404{
+          border: none;
+          background-color: transparent;
+          border-radius: 7px;
+          padding: 10px;
+          box-shadow: transparent;
+          outline: none;
+        }
 
       @keyframes fadeIn {
         from {
@@ -125,9 +134,10 @@
         .error-404 .text {
             font-size: 100px;
             font-weight: bold;
-            color: #007bff;
+            color: #5471c0;
             position: relative;
             z-index: 2;
+            border: none;
         }
 
         .error-404 .shadow {
@@ -152,11 +162,7 @@
             }
         }
 
-        .error-404 .text, .error-404 .shadow, .error-404{
-          border: none;
-          background-color: transparent;
-          padding: 10px;
-        }
+
     </style>
   </head>
   <body>

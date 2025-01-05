@@ -22,14 +22,35 @@ app.use('/static', express.static('public', {
 const publicRouter = require("./router/public");
 const adminRouter = require("./router/admin");
 const authRouter = require("./router/auth")
-
+const database = require("./config/databaseConfig")
+const errorsRouter = require('./router/errors')
 
 // Router usage
 app.use(adminRouter);
 app.use(authRouter);
-
-// keep public router the last
 app.use(publicRouter);
+
+
+// keep errors router the last
+app.use(errorsRouter);
+
+// connect to database
+app.get("/database", async(req, res) => {
+
+  try {
+    const result = await database.query(`SELECT * FROM users`);
+    console.log(result.rows);
+    
+  } catch (error) {
+    console.error("Error while connecting to the database", error);
+    res.status(500).render("errors/serverError", {
+      title: "500 Internal Server Error",
+      message: "Oops! Something went wrong on our end.",
+      suggestion: "Please try again later or go back to the homepage."
+  });
+  }
+})
+
 
 // Start the server
 app.listen(3000, () => {
