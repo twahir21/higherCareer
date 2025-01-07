@@ -6,4 +6,4 @@ node_modules
 *.html
 
 # env variables
-*.env
+.env
