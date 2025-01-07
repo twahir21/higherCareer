@@ -15,30 +15,34 @@
     <div class="wrapper">
       <div class="register-form">
         <h2>Parent Registration</h2>
-        <form>
+        <form id="parentRegisterForm">
           <div class="input-group">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Full Name" required>
+            <input type="text" name="parent_UserName" id="parent_UserName" placeholder="Username" required>
+          </div>
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" name="parent_fullName" id="parent_fullName" placeholder="Full Name" required>
           </div>
           <div class="input-group">
             <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email Address" required>
+            <input type="email" name="parent_email" id="parent_email" placeholder="Email Address" required>
           </div>
           <div class="input-group">
             <i class="fas fa-phone"></i>
-            <input type="tel" placeholder="Phone Number" required>
+            <input type="tel" name="parent_tel" id="parent_tel" placeholder="Phone Number" required>
           </div>
           <div class="input-group">
             <i class="fas fa-users"></i>
-            <input type="text" placeholder="Relationship to Student" required>
+            <input type="text" name="relationship" id="relationship" placeholder="Relationship to Student" required>
           </div>
           <div class="input-group">
             <i class="fas fa-child"></i>
-            <input type="text" placeholder="Student Full Name" required>
+            <input type="text" name="student_fullName" id="student_fullName" placeholder="Student Full Name" required>
           </div>
           <div class="input-group select-group">
             <i class="fas fa-school"></i>
-            <select required>
+            <select name="student_class" id="student_class" required>
               <option value="" disabled selected>Choose Student Class</option>
               <option value="kg1">KG1 (Nursery)</option>
               <option value="kg2">KG2 (Nursery)</option>
@@ -53,13 +57,13 @@
           </div>
           <div class="input-group">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" required>
+            <input type="password" name="parent_password" id="parent_password" placeholder="Password" required>
           </div>
           <div class="input-group">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Confirm Password" required>
+            <input type="password" name="parent_confirmPswd" id="parent_confirmPswd" placeholder="Confirm Password" required>
           </div>
-          <button type="submit" class="btn">Register</button>
+          <button type="submit" class="btn" id="parentRegisterBtn">Register</button>
         </form>
       </div>
       <div class="register-banner">
@@ -70,5 +74,6 @@
     </div>
   </div>
   <%- include("../includes/footer") %>
+  <script defer src="/js/parent-register.js"></script>
 </body>
 </html>

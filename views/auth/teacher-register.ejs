@@ -15,36 +15,41 @@
     <div class="wrapper">
       <div class="register-form">
         <h2>Teacher Registration</h2>
-        <form>
+
+        <form action="/auth/teacher-register" method="post" id="teacher-register">
           <div class="input-group">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Full Name" required>
+            <input type="text" name="teacher_UserName" id="teacher_UserName" placeholder="Username" required>
+          </div> 
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" name="teacher_fullName" id="teacher_fullName" placeholder="Full Name" required>
           </div>
           <div class="input-group">
             <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email Address" required>
+            <input type="email" name="teacher_email" id="teacher_email" placeholder="Email Address" required>
           </div>
           <div class="input-group">
             <i class="fas fa-phone"></i>
-            <input type="tel" placeholder="Phone Number" required>
+            <input type="tel" name="teacher_tel" id="teacher_tel" placeholder="Phone Number" required>
           </div>
           <div class="input-group">
             <i class="fas fa-chalkboard-teacher"></i>
-            <input type="text" placeholder="Subjects Taught" required>
+            <input type="text" name="subject" id="subject" placeholder="Subjects Taught" required>
           </div>
           <div class="input-group">
             <i class="fas fa-graduation-cap"></i>
-            <input type="text" placeholder="Qualifications" required>
+            <input type="text" name="qualifications" id="qualifications" placeholder="Qualifications" required>
           </div>
           <div class="input-group">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" required>
+            <input type="password" name="teacher_password" id="teacher_password" placeholder="Password" required>
           </div>
           <div class="input-group">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Confirm Password" required>
+            <input type="password" name="teacher_confirmPswd" id="teacher_confirmPswd" placeholder="Confirm Password" required>
           </div>
-          <button type="submit" class="btn">Register</button>
+          <button type="submit" class="btn" id="teacherRegisterBtn">Register</button>
         </form>
       </div>
       <div class="register-banner">
@@ -55,5 +60,7 @@
     </div>
   </div>
   <%- include("../includes/footer") %>
+  <script defer src="/js/teacher-register.js"></script>
+
 </body>
 </html>
