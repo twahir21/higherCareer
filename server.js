@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const compression = require("compression")
+const compression = require("compression");
+const dotenv = require("dotenv");
+dotenv.config();
 
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
@@ -51,8 +53,8 @@ app.get("/database", async(req, res) => {
   }
 })
 
-
+const port = process.env.PORT
 // Start the server
-app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
+app.listen(port, () => {
+    console.log('Server running on http://localhost');
 });
