@@ -18,8 +18,7 @@ authRouter.get("/teacher-register", (req, res) => {
 });
 
 // login endpoint
-authRouter.post('/auth/login', (req, res, next) => {
-    console.log(req.body);
+authRouter.post('/auth/login', (req, res) => {
 
     const {username, password} = req.body;
 
@@ -28,11 +27,13 @@ authRouter.post('/auth/login', (req, res, next) => {
         res.status(200).json({
             success: true,
             message: 'Login successful!',
+            redirect: '/admin',
         });
     } else {
         res.status(401).json({
             success: false,
             message: 'Invalid username or password.',
+            redirect: '/login'
         });
     }
 })

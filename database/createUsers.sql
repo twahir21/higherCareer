@@ -10,5 +10,7 @@ CREATE TABLE Users (
     CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     ApprovedAt TIMESTAMP,
     ApprovedBy INT REFERENCES Users(UserID),
-    VerifiedAt TIMESTAMP
+    VerifiedAt TIMESTAMP,
+    Phone VARCHAR(30) NOT NULL,
+    Username VARCHAR(50) NOT NULL,
 );

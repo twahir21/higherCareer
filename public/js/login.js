@@ -78,7 +78,11 @@ loginForm.addEventListener("submit", async (event) => {
             icon: response.ok ? 'success' : 'error',
             title: response.ok ? 'Login Successful' : 'Login Failed',
             text: result.message,
-        });
+        }).then(
+            () => {
+                window.location.href = result.redirect;
+            }
+        )
 
     } catch (error) {
         Swal.fire({
