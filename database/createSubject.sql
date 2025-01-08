@@ -1,0 +1,5 @@
+CREATE TABLE Subjects (
+    SubjectID SERIAL PRIMARY KEY,
+    SubjectName VARCHAR(50) UNIQUE NOT NULL,
+    ClassID INT REFERENCES Classes(ClassID) ON DELETE CASCADE
+);

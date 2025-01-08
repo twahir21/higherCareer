@@ -1,1 +1,14 @@
-CREATE TABLE users
+CREATE TABLE Users (
+    UserID SERIAL PRIMARY KEY,
+    UserRole VARCHAR(10) CHECK (UserRole IN ('Admin', 'Parent', 'Teacher')),
+    FullName VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) UNIQUE NOT NULL,
+    PasswordHash VARCHAR(255) NOT NULL,
+    IsVerified BOOLEAN DEFAULT FALSE,
+    IsApproved BOOLEAN DEFAULT FALSE,
+    IsActive BOOLEAN DEFAULT FALSE,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ApprovedAt TIMESTAMP,
+    ApprovedBy INT REFERENCES Users(UserID),
+    VerifiedAt TIMESTAMP
+);
