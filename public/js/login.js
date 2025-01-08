@@ -1,4 +1,3 @@
-// JavaScript part
 const loginForm = document.getElementById("loginForm");
 const usernameLogin = document.getElementById("loginUsername");
 const passwordLogin = document.getElementById("loginPassword");
@@ -7,56 +6,85 @@ const passwordLogin = document.getElementById("loginPassword");
 const usernameRegex = /^[a-zA-Z0-9_]{3,20}$/; // Alphanumeric + underscores, 3-20 characters
 const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
 
-let isValid = true;
-
 // Helper function for sanitization
 const sanitizeInput = (input) => {
-    const sanitized = input
+    return input
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#39;");
-    return sanitized.trim();
+        .replace(/'/g, "&#39;")
+        .trim();
 };
 
-const loginValidator = (event) => {
-    // Sanitize inputs
+const loginValidator = () => {
     const sanitizedUsername = sanitizeInput(usernameLogin.value);
     const sanitizedPassword = sanitizeInput(passwordLogin.value);
 
-    isValid = true; // Reset validation state
-
-    if (sanitizedUsername === "" || sanitizedPassword === "") {
-        isValid = false;
+    if (!sanitizedUsername || !sanitizedPassword) {
         Swal.fire({
             icon: 'info',
             title: 'Info',
             text: 'All form inputs must be filled with some data'
         });
-    } else if (!usernameRegex.test(sanitizedUsername)) {
-        isValid = false;
+        return false;
+    }
+
+    if (!usernameRegex.test(sanitizedUsername)) {
         Swal.fire({
             icon: 'error',
             title: 'Oops!',
             text: 'Invalid username'
         });
-    } else if (!passwordRegex.test(sanitizedPassword)) {
-        isValid = false;
+        return false;
+    }
+
+    if (!passwordRegex.test(sanitizedPassword)) {
         Swal.fire({
             icon: 'error',
             title: 'Oops!',
             text: 'Invalid password. Password must have at least 8 characters'
         });
+        return false;
     }
 
-    if (!isValid) {
-        event.preventDefault(); // Prevent form submission
-    }
-
-    return isValid;
+    return true; // All validations passed
 };
 
-loginForm.addEventListener("submit", (event) => {
-    loginValidator(event);
+loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    if (!loginValidator()) {
+        return; // Stop execution if validation fails
+    }
+
+    // Prepare sanitized data for submission
+    const formData = {
+        username: sanitizeInput(usernameLogin.value),
+        password: sanitizeInput(passwordLogin.value)
+    };
+
+    const url = "/auth/login";
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
+        });
+
+        const result = await response.json(); // server sends a JSON response if using fetch API
+        Swal.fire({
+            icon: response.ok ? 'success' : 'error',
+            title: response.ok ? 'Login Successful' : 'Login Failed',
+            text: result.message,
+        });
+
+    } catch (error) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: `Failed to submit form: ${error.message}`,
+        });
+    }
 });

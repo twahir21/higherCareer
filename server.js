@@ -5,6 +5,8 @@ const compression = require("compression");
 const dotenv = require("dotenv");
 dotenv.config();
 
+const bodyParser = require("body-parser");
+
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -25,7 +27,10 @@ const publicRouter = require("./router/public");
 const adminRouter = require("./router/admin");
 const authRouter = require("./router/auth")
 const database = require("./config/databaseConfig")
-const errorsRouter = require('./router/errors')
+const errorsRouter = require('./router/errors');
+
+// Middlewares
+app.use(express.json()); // this is bodyParser
 
 // Router usage
 app.use(adminRouter);
@@ -35,6 +40,7 @@ app.use(publicRouter);
 
 // keep errors router the last
 app.use(errorsRouter);
+
 
 // connect to database
 app.get("/database", async(req, res) => {
