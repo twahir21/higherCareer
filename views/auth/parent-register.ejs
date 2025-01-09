@@ -15,10 +15,10 @@
     <div class="wrapper">
       <div class="register-form">
         <h2>Parent Registration</h2>
-        <form id="parentRegisterForm">
+        <form id="parentRegisterForm" method="post">
           <div class="input-group">
             <i class="fas fa-user"></i>
-            <input type="text" name="parent_UserName" id="parent_UserName" placeholder="Username" required>
+            <input type="text" name="parent_UserName" id="parent_UserName" placeholder="Username" required autofocus>
           </div>
           <div class="input-group">
             <i class="fas fa-user"></i>
@@ -57,11 +57,11 @@
           </div>
           <div class="input-group">
             <i class="fas fa-lock"></i>
-            <input type="password" name="parent_password" id="parent_password" placeholder="Password" required>
+            <input type="password" name="parent_password" id="parent_password" placeholder="Password" required autocomplete="new-password">
           </div>
           <div class="input-group">
             <i class="fas fa-lock"></i>
-            <input type="password" name="parent_confirmPswd" id="parent_confirmPswd" placeholder="Confirm Password" required>
+            <input type="password" name="parent_confirmPswd" id="parent_confirmPswd" placeholder="Confirm Password" required autocomplete="current-password">
           </div>
           <button type="submit" class="btn" id="parentRegisterBtn">Register</button>
         </form>

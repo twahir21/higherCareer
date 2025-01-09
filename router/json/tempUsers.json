@@ -1,0 +1,28 @@
+[
+  {
+    "username": "twhair",
+    "password": "$2a$10$KWpMLb6gp6PWmwXV/7UaTu8aYZ8fxgAOhVMgxYww.lf2jYcKdbOE2",
+    "fullName": "Twahir Abdi",
+    "email": "twahir@gmail.com",
+    "tel": "+255674291587",
+    "relationship": "studen",
+    "student_fullName": "Twahir Abdi",
+    "student_class": "standard5",
+    "isApproved": false,
+    "isVerified": false,
+    "createdAt": "2025-01-09T08:18:36.457Z"
+  },
+  {
+    "username": "mbappe",
+    "password": "$2a$10$4WuROdpTfM70aGWS2eG5V.cMooPq3m2QwuxpHSEbJD7HlhnC7s30y",
+    "fullName": "kylian mbappe",
+    "email": "mbappe@gmail.com",
+    "tel": "+255675291587",
+    "relationship": "mwalim",
+    "student_fullName": "juma kaseja",
+    "student_class": "standard5",
+    "isApproved": false,
+    "isVerified": false,
+    "createdAt": "2025-01-09T08:25:51.868Z"
+  }
+]

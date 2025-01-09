@@ -30,8 +30,7 @@ const sanitizeInput = (input) => {
 };
 
 // Validation function
-const validateParentForm = (event) => {
-  let isValid = true;
+const validateParentForm = () => {
 
   // Sanitize inputs
   const sanitizedUsername = sanitizeInput(parent_UserName.value);
@@ -45,35 +44,79 @@ const validateParentForm = (event) => {
 
   // Validation checks
   if (!usernameRegex.test(sanitizedUsername)) {
-    isValid = false;
     Swal.fire("Invalid Username", "Username must be 3-20 alphanumeric characters.", "error");
+    return false;
   } else if (!fullNameRegex.test(sanitizedFullName)) {
-    isValid = false;
     Swal.fire("Invalid Full Name", "Please enter a valid full name.", "error");
+    return false;
   } else if (!emailRegex.test(sanitizedEmail)) {
-    isValid = false;
     Swal.fire("Invalid Email", "Please enter a valid email address.", "error");
+    return false;
   } else if (!phoneRegex.test(sanitizedPhone)) {
-    isValid = false;
     Swal.fire("Invalid Phone Number", "Please enter a valid phone number.", "error");
+    return false;
   } else if (!safeTextRegex.test(sanitizedRelationship)) {
-    isValid = false;
     Swal.fire("Invalid Relationship", "Enter a valid relationship to the student.", "error");
+    return false;
   } else if (!fullNameRegex.test(sanitizedStudentName)) {
-    isValid = false;
     Swal.fire("Invalid Student Name", "Enter a valid student name.", "error");
+    return false;
   } else if (!passwordRegex.test(sanitizedPassword)) {
-    isValid = false;
     Swal.fire("Invalid Password", "Password must meet security criteria.", "error");
+    return false;
   } else if (sanitizedPassword !== sanitizedConfirmPassword) {
-    isValid = false;
     Swal.fire("Password Mismatch", "Passwords do not match.", "error");
+    return false;
   }
 
-  if (!isValid) {
-    event.preventDefault();
-  }
+  return true;
 };
 
 // Event listener for form submission
-parentRegisterForm.addEventListener("submit", validateParentForm);
+parentRegisterForm.addEventListener("submit", async(e) => {
+  e.preventDefault();
+
+  if(!validateParentForm()){
+    return; // stop execution
+  }
+
+  // Prepare sanitized data for submission
+  const formData = {
+    username: sanitizeInput(parent_UserName.value),
+    password: sanitizeInput(parent_password.value),
+    fullName: sanitizeInput(parent_fullName.value),
+    email: sanitizeInput(parent_email.value),
+    tel: sanitizeInput(parent_tel.value),
+    relationship: sanitizeInput(relationship.value),
+    student_fullName: sanitizeInput(student_fullName.value),
+    student_class: sanitizeInput(student_class.value)
+};
+
+  const url = "/auth/parent-register";
+
+  try {
+      const response = await fetch(url, {
+          method: "POST",
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+      });
+      console.log(formData);
+      const result = await response.json(); // server sends a JSON response if using fetch API
+      Swal.fire({
+          icon: response.ok ? 'success' : 'error',
+          title: response.ok ? 'Parent registered Successful, Wait for account verification via your email' : 'Parent registration Failed',
+          text: result.message,
+      }).then(
+          () => {
+              window.location.href = result.redirect;
+          }
+      )
+
+  } catch (error) {
+      Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: `Failed to submit form: ${error.message}`,
+      });
+  }
+});

@@ -54,33 +54,231 @@
         <%- include("./main/sideLinks") %>
 
 
-        <!-- Content Wrapper -->
-        <div class="content-wrapper">
-            <div class="content-header">
-                <div class="container-fluid">
-                    <h1 class="m-0">Admin Dashboard</h1>
+        <!-- Dashboard Section -->
+        <section id="dashboardSection">
+            <div class="content-wrapper">
+                <div class="content-header">
+                    <div class="container-fluid">
+                        <h1 class="m-0">Admin Dashboard</h1>
+                    </div>
                 </div>
-            </div>
-            <div class="content">
-                <div class="container-fluid">
-
-                    <!-- Cards Section -->
-                    <%- include("./main/cards.ejs") %>
-
-                    <!-- Charts Section -->
-                    <%- include("./main/graphs.ejs") %>
-
-                    <!-- Messages and announcement -->
-                    <div class="row mt-4">
-                        <!-- messages  -->
-                        <%- include("./main/messages.ejs") %>
-
-                    <!-- Announcements Section -->
-                    <%- include("./main/announcement.ejs") %>
+                <div class="content">
+                    <div class="container-fluid">
+    
+                        <!-- Cards Section -->
+                        <%- include("./main/cards.ejs") %>
+    
+                        <!-- Charts Section -->
+                        <%- include("./main/graphs.ejs") %>
+    
+                        <!-- Messages and announcement -->
+                        <div class="row mt-4">
+                            <!-- messages  -->
+                            <%- include("./main/messages.ejs") %>
+    
+                        <!-- Announcements Section -->
+                        <%- include("./main/announcement.ejs") %>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section id="verifyUsersSection" style="display:none;">
+            <!-- Verify Users Content -->
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - User Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* styles.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user-table th, .user-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.user-table th {
+    background-color: #f2f2f2;
+}
+
+button {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.accept-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.reject-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Management</h1>
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Student</th>
+                    <th>Class</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="user-list">
+                <!-- User list will be populated here -->
+            </tbody>
+        </table>
+    </div>
+    
+    <script src="app.js"></script>
+    <script>
+        // app.js
+
+document.addEventListener('DOMContentLoaded', async () => {
+    // Fetch user data from backend (you can replace this with an actual API call)
+    const users = await fetchUsers();
+
+    // Render users in the table
+    renderUsers(users);
+});
+
+// Fetch user data from the server
+async function fetchUsers() {
+    try {
+        const response = await fetch('/api/users'); // Replace with your actual API route
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching users:', error);
+        return [];
+    }
+}
+
+// Render users in the table
+function renderUsers(users) {
+    const userList = document.getElementById('user-list');
+    userList.innerHTML = ''; // Clear the existing list
+
+    users.forEach(user => {
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+            <td>${user.username}</td>
+            <td>${user.fullName}</td>
+            <td>${user.email}</td>
+            <td>${user.student_fullName}</td>
+            <td>${user.student_class}</td>
+            <td>${user.isApproved ? 'Approved' : 'Pending'}</td>
+            <td>
+                <button class="accept-btn" onclick="changeUserStatus('${user.username}', true)">Accept</button>
+                <button class="reject-btn" onclick="changeUserStatus('${user.username}', false)">Reject</button>
+            </td>
+        `;
+
+        userList.appendChild(row);
+    });
+}
+
+// Handle accept/reject action
+async function changeUserStatus(username, isApproved) {
+    try {
+        const response = await fetch(`/api/users/${username}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ isApproved }),
+        });
+
+        const result = await response.json();
+        if (result.success) {
+            alert(result.message);
+            const users = await fetchUsers(); // Refresh user list
+            renderUsers(users);
+        } else {
+            alert('Error updating user status');
+        }
+    } catch (error) {
+        console.error('Error updating status:', error);
+        alert('An error occurred while updating the status.');
+    }
+}
+
+    </script>
+</body>
+</html>
+
+        </section>
+        <section id="managementSection" style="display:none;">
+            <!-- Management Content -->
+            <h1>Management Content</h1>
+        </section>
+        <section id="linkingSection" style="display:none;">
+            <!-- Linking Content -->
+            <h1>Linking Content</h1>
+        </section>
+        <section id="communicationHistorySection" style="display:none;">
+            <!-- Communication History Content -->
+            <h1>Communication History Content</h1>
+        </section>
+        <section id="teacherManagementSection" style="display:none;">
+            <!-- Teacher Management Content -->
+            <h1>Teacher Management Content</h1>
+        </section>
+        <section id="attendanceSection" style="display:none;">
+            <!-- Attendance Content -->
+            <h1>Attendance Content</h1>
+        </section>
+        <section id="communicationSection" style="display:none;">
+            <!-- Communication Content -->
+            <h1>Communication Content</h1>
+        </section>
+        <section id="settingsSection" style="display:none;">
+            <!-- Settings Content -->
+            <h1>Settings Content</h1>
+        </section>
     </div>
 
     <!-- Scripts -->
@@ -92,6 +290,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
     <script src="/js/admin-frontend.js"></script>
+    <script src="/js/admin-sections.js"></script>
 
 </body>
 </html>
