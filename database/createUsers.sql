@@ -4,6 +4,8 @@ CREATE TABLE Users (
     FullName VARCHAR(100) NOT NULL,
     Email VARCHAR(100) UNIQUE NOT NULL,
     PasswordHash VARCHAR(255) NOT NULL,
+    Phone VARCHAR(30) NOT NULL UNIQUE,
+    Username VARCHAR(50) NOT NULL,
     IsVerified BOOLEAN DEFAULT FALSE,
     IsApproved BOOLEAN DEFAULT FALSE,
     IsActive BOOLEAN DEFAULT FALSE,
@@ -11,6 +13,4 @@ CREATE TABLE Users (
     ApprovedAt TIMESTAMP,
     ApprovedBy INT REFERENCES Users(UserID),
     VerifiedAt TIMESTAMP,
-    Phone VARCHAR(30) NOT NULL,
-    Username VARCHAR(50) NOT NULL,
 );

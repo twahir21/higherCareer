@@ -1,6 +1,6 @@
 CREATE TABLE Parent (
     ParentID INT PRIMARY KEY REFERENCES Users(UserID),
-    Occupation VARCHAR(100),
-    Address TEXT,
-    PhoneNumber VARCHAR(15) UNIQUE
+    Relation_Student VARCHAR(100),
+    Student_name VARCHAR (30),
+    Student_Class VARCHAR(50)
 );
