@@ -24,6 +24,7 @@ router.patch('/api/users/:username', (req, res) => {
     const { isApproved } = req.body;
 
     try {
+        const filePath = path.join(__dirname, 'json', 'tempUsers.json');
         const fileData = fs.readFileSync(filePath, 'utf8');
         let users = JSON.parse(fileData);
 
@@ -41,6 +42,33 @@ router.patch('/api/users/:username', (req, res) => {
     } catch (error) {
         console.error('Error updating user:', error);
         res.status(500).json({ success: false, message: 'Internal server error' });
+    }
+});
+
+// DELETE route to delete a user by username
+router.delete('/api/users/:username', (req, res) => {
+    const { username } = req.params;
+    const filePath = path.join(__dirname, 'json', 'tempUsers.json');
+
+    try {
+        // Read the JSON file
+        const fileData = fs.readFileSync(filePath, 'utf8');
+        const users = JSON.parse(fileData);
+
+        // Filter out the user to delete
+        const filteredUsers = users.filter(user => user.username !== username);
+
+        if (users.length === filteredUsers.length) {
+            return res.status(404).json({ success: false, message: "User not found." });
+        }
+
+        // Write the updated users list back to the file
+        fs.writeFileSync(filePath, JSON.stringify(filteredUsers, null, 2));
+
+        res.json({ success: true, message: "User rejected successfully." });
+    } catch (error) {
+        console.error("Error rejecting a user:", error);
+        res.status(500).json({ success: false, message: "An error occurred while rejecting the user." });
     }
 });
 

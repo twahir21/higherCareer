@@ -1,16 +1,65 @@
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // Fetch user data from backend (you can replace this with an actual API call)
     const users = await fetchUsers();
 
     // Render users in the table
     renderUsers(users);
 });
 
+
+// delete data on click
+async function deleteUser(username) {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, reject"
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            try {
+                const response = await fetch(`/api/users/${username}`, {
+                    method: 'DELETE',
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    Swal.fire({
+                        title: "Success 😊",
+                        text: "User has been rejected.",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+
+                    const users = await fetchUsers(); // Refresh the user list
+                    renderUsers(users);
+                } else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops 😟",
+                        text: result.message,
+                    });
+                }
+            } catch (error) {
+                console.error("Error deleting user:", error);
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "An error occurred while deleting the user.",
+                });
+            }
+        }
+    });
+}
+
+
 // Fetch user data from the server
 async function fetchUsers() {
     try {
-        const response = await fetch('/api/users'); // Replace with your actual API route
+        const response = await fetch('/api/users');
         const data = await response.json();
         return data;
     } catch (error) {
@@ -36,7 +85,7 @@ function renderUsers(users) {
             <td>${user.isApproved ? 'Approved' : 'Pending'}</td>
             <td>
                 <button class="accept-btn" onclick="changeUserStatus('${user.username}', true)">Accept</button>
-                <button class="reject-btn" onclick="changeUserStatus('${user.username}', false)">Reject</button>
+                <button class="reject-btn" onclick="deleteUser('${user.username}')">Reject</button>
             </td>
         `;
 
@@ -57,11 +106,24 @@ async function changeUserStatus(username, isApproved) {
 
         const result = await response.json();
         if (result.success) {
-            alert(result.message);
+            Swal.fire({
+                icon: response.ok ? "success" : "error",
+                title: response.ok ? "Success 😊": "Failed! 😔",
+                text: result.message,
+                showConfirmButton: false,
+                timer: 2000
+            })
+            
             const users = await fetchUsers(); // Refresh user list
             renderUsers(users);
         } else {
-            alert('Error updating user status');
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops 😟',
+                text: 'Failed to update user status',
+                showConfirmButton: false,
+                timer: 2000
+            })
         }
     } catch (error) {
         console.error('Error updating status:', error);
