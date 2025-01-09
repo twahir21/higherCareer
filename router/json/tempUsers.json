@@ -24,5 +24,44 @@
     "isApproved": false,
     "isVerified": false,
     "createdAt": "2025-01-09T08:25:51.868Z"
+  },
+  {
+    "username": "alli",
+    "password": "$2a$10$dNMgWeJb7FpNvOh6HI08j.wW.LDNbcxEo4XAFKr3QbUKsQvRpo7hS",
+    "fullName": "alli sudi",
+    "email": "allyarchy@gmail.com",
+    "tel": "+255754457665",
+    "relationship": "teacher",
+    "student_fullName": "bablee",
+    "student_class": "standard1",
+    "isApproved": false,
+    "isVerified": false,
+    "createdAt": "2025-01-09T11:43:18.701Z"
+  },
+  {
+    "username": "miim",
+    "password": "$2a$10$SjEoE7841DcOCXGIXQmkEOh0US9BNaH8bA905WcdnrLGxZQBKQBha",
+    "fullName": "mimi",
+    "email": "mimi@gmail.com",
+    "tel": "+254767899333",
+    "relationship": "asdf",
+    "student_fullName": "asdf",
+    "student_class": "standard6",
+    "isApproved": false,
+    "isVerified": false,
+    "createdAt": "2025-01-09T11:48:53.996Z"
+  },
+  {
+    "username": "mom",
+    "password": "$2a$10$dycxz9xcOlwkqXtooySBE.zFRXFHEr8AisoCcCsOaXoym2xcYjULa",
+    "fullName": "momo",
+    "email": "mon@gamil.com",
+    "tel": "+254768987658",
+    "relationship": "mwalim",
+    "student_fullName": "akljsfalsfj",
+    "student_class": "standard5",
+    "isApproved": false,
+    "isVerified": false,
+    "createdAt": "2025-01-09T12:02:22.543Z"
   }
 ]

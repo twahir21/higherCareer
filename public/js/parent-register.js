@@ -104,11 +104,13 @@ parentRegisterForm.addEventListener("submit", async(e) => {
       const result = await response.json(); // server sends a JSON response if using fetch API
       Swal.fire({
           icon: response.ok ? 'success' : 'error',
-          title: response.ok ? 'Parent registered Successful, Wait for account verification via your email' : 'Parent registration Failed',
+          title: response.ok ? 'Success 😊' : 'Failed 😔',
           text: result.message,
       }).then(
           () => {
-              window.location.href = result.redirect;
+             if(response.ok){
+                window.location.href = result.redirect;
+             }
           }
       )
 
