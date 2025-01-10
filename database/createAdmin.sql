@@ -1,5 +1,6 @@
-CREATE TABLE Admin (
-    AdminID INT PRIMARY KEY REFERENCES Users(UserID),
-    Position VARCHAR(50),
-    Permissions JSON NOT NULL
-);
+CREATE TABLE admin(
+id serial primary key,
+username varchar(50) not null,
+role varchar(50),
+pswd varchar(255) not null
+)
