@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const path = require("path");
 const fs = require("fs");
+const Database = require("../config/databaseConfig"); // Assuming you have a database config
 
 // Path to the user JSON file
 const filePath = path.join(__dirname, 'json', 'tempUsers.json');
@@ -58,17 +59,21 @@ router.patch('/api/users/:username', async (req, res) => {
         user.isApproved = true;
         user.role = role;
 
-        await writeUsersToFile(users);
-
-        res.json({ 
-            success: true, 
-            message: `User approved and assigned the role of ${user.role}.` 
-        });
-
-        // implement saving to db
-        if(user.role === "parent"){
-            //save to parent db
+        // Insert user into the respective database table
+        if (user.role === 'parent') {
+            await insertIntoParentDB(user);
+        } else if (user.role === 'teacher') {
+            await insertIntoTeacherDB(user);
         }
+
+        // After successful insert, delete the user from the JSON file
+        const updatedUsers = users.filter(u => u.username !== username);
+        await writeUsersToFile(updatedUsers);
+
+        res.json({
+            success: true,
+            message: `User approved and assigned the role of ${user.role}.`
+        });
 
     } catch (error) {
         console.error('Error updating user:', error);
@@ -76,6 +81,46 @@ router.patch('/api/users/:username', async (req, res) => {
     }
 });
 
+// Helper function to insert user into the parent table
+async function insertIntoParentDB(user) {
+    const query = `
+        INSERT INTO parent (username, password, fullName, email, tel, relationship, student_fullName, student_class, role, isApproved, isVerified, createdAt)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+    `;
+    const values = [
+        user.username, user.password, user.fullName, user.email, user.tel, user.relationship,
+        user.student_fullName, user.student_class, 'parent', // Role is 'parent' here
+        user.isApproved, user.isVerified, user.createdAt
+    ];
+
+    try {
+        await Database.query(query, values);
+    } catch (error) {
+        console.error('Error inserting into parent DB:', error);
+        throw new Error('Error saving to parent database');
+    }
+}
+
+
+// Helper function to insert user into the teacher table
+async function insertIntoTeacherDB(user) {
+    const query = `
+        INSERT INTO teacher (username, password, fullName, email, tel, qualifications, subjectTaught, role, isApproved, isVerified, createdAt)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+    `;
+    const values = [
+        user.username, user.password, user.fullName, user.email, user.tel, user.qualifications,
+        user.subjectTaught, 'teacher', // Role is 'teacher' here
+        user.isApproved, user.isVerified, user.createdAt
+    ];
+
+    try {
+        await Database.query(query, values);
+    } catch (error) {
+        console.error('Error inserting into teacher DB:', error);
+        throw new Error('Error saving to teacher database');
+    }
+}
 
 
 // DELETE route to delete a user by username

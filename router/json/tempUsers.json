@@ -1,32 +1,5 @@
 [
   {
-    "username": "Twahir21",
-    "password": "$2a$10$V4GygPdBO3HvXCVoKuj0N.jNvQjXEzI9AT8jRF1HHoeNFEujTD6Ky",
-    "fullName": "Twahir Abdi",
-    "email": "twahir@gmail.com",
-    "tel": "+255674291587",
-    "relationship": "father",
-    "student_fullName": "Ally",
-    "student_class": "standard4",
-    "isApproved": true,
-    "isVerified": false,
-    "createdAt": "2025-01-11T08:57:54.768Z",
-    "role": "parent"
-  },
-  {
-    "username": "latipha",
-    "password": "$2a$10$5UF3qp87Cipf/.DIXGajROPMoMaDJplCUJTByEsB4qleu8roIlgty",
-    "fullName": "latifa sudi",
-    "email": "typhash@gmail.com",
-    "tel": "+255678365489",
-    "qualifications": "Degree",
-    "subjectTaught": "English",
-    "isApproved": true,
-    "isVerified": false,
-    "createdAt": "2025-01-11T10:57:15.460Z",
-    "role": "teacher"
-  },
-  {
     "username": "admin2",
     "password": "$2a$10$HYinrAt5mQa5scXNio1i5uM8/9fxivZpgxOXA6u.lSA.mnqJfPqwO",
     "fullName": "admin juma",
