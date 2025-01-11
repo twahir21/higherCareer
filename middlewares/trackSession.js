@@ -1,24 +1,24 @@
 const trackSession = (req, res, next) => {
   if (req.session) {
     const now = Date.now();
+    // Check if the session is inactive for more than 1 minute
     if (req.session.lastActivity && now - req.session.lastActivity > 60000) {
-      // If inactive for more than 1 minute, destroy the session
+      // If session is expired, destroy it
+      console.log('Session expired. Destroying session...');
       req.session.destroy((err) => {
         if (err) {
-          console.error(err);
-          return res.status(500).json({ success: false, message: "Error destroying session" });
+          console.error('Error destroying session:', err);
+          return res.status(500).json({ message: 'Failed to destroy session.' });
         }
+        // Respond with status 401 and session expiration message
+        return res.status(401).json({ message: 'Session expired. Please log in again.' });
       });
-      
-      // Send a response to inform the frontend
-      return res.status(401).json({
-        success: false,
-        message: "Session expired. Please log in again."
-      });
+    } else {
+      req.session.lastActivity = now; // Update the last activity timestamp
     }
-    req.session.lastActivity = now; // Update last activity timestamp
   }
   next();
 };
+
 
 module.exports = trackSession;

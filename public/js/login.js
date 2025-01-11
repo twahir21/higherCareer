@@ -93,3 +93,20 @@ loginForm.addEventListener("submit", async (event) => {
         });
     }
 });
+
+
+fetch('/admin')
+  .then(response => {
+    if (response.status === 401) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Session Expired',
+        text: 'Your session has expired. Please log in again.',
+      }).then(() => {
+        window.location.href = '/login'; // Redirect to login page
+      });
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
