@@ -37,33 +37,43 @@ router.get('/api/users', async (req, res) => {
     }
 });
 
-// Route to update user approval status
+// Route to update user approval status and assign role
 router.patch('/api/users/:username', async (req, res) => {
     const { username } = req.params;
-    const { isApproved } = req.body;
+    const { role } = req.body; // Role comes from the admin's selection
 
     try {
         const users = await readUsersFromFile();
         const user = users.find(user => user.username === username);
-        
+
         if (!user) {
             return res.status(404).json({ success: false, message: 'User not found' });
         }
 
-        user.isApproved = isApproved;
+        if (!role || !['parent', 'teacher'].includes(role)) {
+            return res.status(400).json({ success: false, message: 'Invalid role provided.' });
+        }
+
+        // Approve the user and assign the role
+        user.isApproved = true;
+        user.role = role;
 
         await writeUsersToFile(users);
 
-        res.json({ success: true, message: `User ${isApproved ? 'accepted' : 'rejected'} successfully.` });
+        res.json({ 
+            success: true, 
+            message: `User approved and assigned the role of ${user.role}.` 
+        });
 
-        // implement a logic to save to database
+        // implement saving to db
 
-        
     } catch (error) {
         console.error('Error updating user:', error);
         res.status(500).json({ success: false, message: 'Internal server error' });
     }
 });
+
+
 
 // DELETE route to delete a user by username
 router.delete('/api/users/:username', async (req, res) => {

@@ -31,8 +31,7 @@ async function saveToJSONFile(data, filePath) {
                 user.username === data.username ||
                 user.email === data.email ||
                 user.fullName === data.fullName ||
-                user.tel === data.tel ||
-                user.student_fullName === data.student_fullName
+                user.tel === data.tel 
         );
 
         if (isDuplicate) {

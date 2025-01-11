@@ -1,4 +1,4 @@
-fetch('/admin')
+fetch('/')
   .then(response => {
     console.log('Response status:', response.status); // Log the response status
     return response.json(); // Ensure to parse the response

@@ -46,7 +46,7 @@ function renderUsers(users) {
             <td>${user.student_class}</td>
             <td>${user.isApproved ? 'Approved' : 'Pending'}</td>
             <td>
-                <button class="accept-btn" onclick="changeUserStatus('${user.username}', true)">Accept</button>
+                <button class="accept-btn" onclick="approveUser('${user.username}')">Accept</button>
                 <button class="reject-btn" onclick="deleteUser('${user.username}')">Reject</button>
             </td>
         `;
@@ -138,6 +138,70 @@ async function deleteUser(username) {
             icon: 'error',
             title: 'Oops 😟',
             text: 'An error occurred while deleting the user.',
+        });
+    }
+}
+
+async function approveUser(username) {
+    try {
+        // Show Swal popup to select a role
+        const { value: role } = await Swal.fire({
+            title: 'Assign Role',
+            input: 'select',
+            inputOptions: {
+                parent: 'Parent',
+                teacher: 'Teacher',
+            },
+            inputPlaceholder: 'Select a role',
+            showCancelButton: true,
+        });
+
+        if (!role) {
+            // If the admin cancels or doesn't select a role, stop further actions
+            Swal.fire({
+                icon: 'info',
+                title: 'Cancelled',
+                text: 'No role selected. User approval not processed.',
+            });
+            return;
+        }
+
+        // Send PATCH request to approve the user and assign role
+        const response = await fetch(`/api/users/${username}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ role }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success 😊',
+                text: result.message,
+                showConfirmButton: false,
+                timer: 2000,
+            });
+
+            // Refresh the user list
+            const users = await fetchUsers();
+            renderUsers(users);
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Failed 😔',
+                text: result.message || 'Failed to approve user',
+            });
+        }
+    } catch (error) {
+        console.error('Error approving user:', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops 😟',
+            text: 'An error occurred while approving the user.',
         });
     }
 }
