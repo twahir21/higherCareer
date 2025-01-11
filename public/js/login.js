@@ -76,13 +76,14 @@ loginForm.addEventListener("submit", async (event) => {
         const result = await response.json(); // server sends a JSON response if using fetch API
         Swal.fire({
             icon: response.ok ? 'success' : 'error',
-            title: response.ok ? 'Login Successful' : 'Login Failed',
+            title: response.ok ? 'Success 😊' : 'Failed 😔',
             text: result.message,
-        }).then(
-            () => {
+        }).then(() => {
+            // If the response has a redirect, go to that URL
+            if (result.redirect) {
                 window.location.href = result.redirect;
             }
-        )
+        });
 
     } catch (error) {
         Swal.fire({
