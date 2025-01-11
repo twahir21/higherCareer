@@ -1,5 +1,3 @@
-Here’s an updated and more realistic README for your project:  
-
 ---
 
 # HigherCareer  
