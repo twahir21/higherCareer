@@ -66,6 +66,9 @@ router.patch('/api/users/:username', async (req, res) => {
         });
 
         // implement saving to db
+        if(user.role === "parent"){
+            //save to parent db
+        }
 
     } catch (error) {
         console.error('Error updating user:', error);
