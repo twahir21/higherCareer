@@ -42,8 +42,8 @@ function renderUsers(users) {
             <td>${user.username}</td>
             <td>${user.fullName}</td>
             <td>${user.email}</td>
-            <td>${user.student_fullName}</td>
-            <td>${user.student_class}</td>
+            <td>${user.student_fullName || `${user.qualifications}`}</td>
+            <td>${user.student_class || `${user.subjectTaught}`}</td>
             <td>${user.isApproved ? 'Approved' : 'Pending'}</td>
             <td>
                 <button class="accept-btn" onclick="approveUser('${user.username}')">Accept</button>

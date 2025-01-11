@@ -48,7 +48,7 @@ async function saveToJSONFile(data, filePath) {
         fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2));
 
         console.log('Data saved successfully!');
-        return { success: true, message: 'Parent registered successfully. Please wait for the admin to verify your account' };
+        return { success: true, message: 'User registered successfully. Please wait for the admin to verify your account' };
     } catch (error) {
         console.error('Error saving data:', error);
         throw new Error('Error saving data');

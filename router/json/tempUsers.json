@@ -12,5 +12,18 @@
     "isVerified": false,
     "createdAt": "2025-01-11T08:57:54.768Z",
     "role": "parent"
+  },
+  {
+    "username": "latipha",
+    "password": "$2a$10$5UF3qp87Cipf/.DIXGajROPMoMaDJplCUJTByEsB4qleu8roIlgty",
+    "fullName": "latifa sudi",
+    "email": "typhash@gmail.com",
+    "tel": "+255678365489",
+    "qualifications": "Degree",
+    "subjectTaught": "English",
+    "isApproved": true,
+    "isVerified": false,
+    "createdAt": "2025-01-11T10:57:15.460Z",
+    "role": "teacher"
   }
 ]
