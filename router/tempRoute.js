@@ -83,45 +83,74 @@ router.patch('/api/users/:username', async (req, res) => {
 
 // Helper function to insert user into the parent table
 async function insertIntoParentDB(user) {
-    const query = `
-        INSERT INTO parent (username, password, fullName, email, tel, relationship, student_fullName, student_class, role, isApproved, isVerified, createdAt)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+    // Query to check if the username or email already exists
+    const checkQuery = `
+        SELECT COUNT(*) FROM parent 
+        WHERE username = $1 OR student_fullName = $2
     `;
-    const values = [
-        user.username, user.password, user.fullName, user.email, user.tel, user.relationship,
-        user.student_fullName, user.student_class, 'parent', // Role is 'parent' here
-        user.isApproved, user.isVerified, user.createdAt
-    ];
+    const checkValues = [user.username, user.student_fullName];
 
     try {
-        await Database.query(query, values);
+        // Check if user exists
+        const result = await Database.query(checkQuery, checkValues);
+        const userExists = parseInt(result.rows[0].count, 10) > 0;
+
+        if (userExists) {
+            throw new Error('User with the same username or email already exists');
+        }
+
+        // Proceed to insert the user if no conflicts
+        const insertQuery = `
+            INSERT INTO parent (username, password, fullName, email, tel, relationship, student_fullName, student_class, role, isApproved, isVerified, createdAt)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+        `;
+        const insertValues = [
+            user.username, user.password, user.fullName, user.email, user.tel, user.relationship,
+            user.student_fullName, user.student_class, 'parent',
+            user.isApproved, user.isVerified, user.createdAt
+        ];
+        await Database.query(insertQuery, insertValues);
     } catch (error) {
         console.error('Error inserting into parent DB:', error);
-        throw new Error('Error saving to parent database');
+        throw error; // Re-throw the error for higher-level handling
     }
 }
 
 
 // Helper function to insert user into the teacher table
 async function insertIntoTeacherDB(user) {
-    const query = `
-        INSERT INTO teacher (username, password, fullName, email, tel, qualifications, subjectTaught, role, isApproved, isVerified, createdAt)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+    // Query to check if the username or email already exists
+    const checkQuery = `
+    SELECT COUNT(*) FROM teacher
+    WHERE username = $1 OR email = $2
     `;
-    const values = [
-        user.username, user.password, user.fullName, user.email, user.tel, user.qualifications,
-        user.subjectTaught, 'teacher', // Role is 'teacher' here
-        user.isApproved, user.isVerified, user.createdAt
-    ];
+    const checkValues = [user.username, user.student_fullName];
 
     try {
+        // Check if user exists
+        const result = await Database.query(checkQuery, checkValues);
+        const userExists = parseInt(result.rows[0].count, 10) > 0;
+
+        // proceed
+        const query = `
+        INSERT INTO teacher (username, password, fullName, email, tel, qualifications, subjectTaught, role, isApproved, isVerified, createdAt)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+        `;
+        const values = [
+            user.username, user.password, user.fullName, user.email, user.tel, user.qualifications,
+            user.subjectTaught, 'teacher', // Role is 'teacher' here
+            user.isApproved, user.isVerified, user.createdAt
+        ];
+
+        if (userExists) {
+            throw new Error('User with the same username or email already exists');
+        }
         await Database.query(query, values);
     } catch (error) {
         console.error('Error inserting into teacher DB:', error);
         throw new Error('Error saving to teacher database');
     }
 }
-
 
 // DELETE route to delete a user by username
 router.delete('/api/users/:username', async (req, res) => {
