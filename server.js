@@ -5,7 +5,6 @@ const compression = require("compression");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const bodyParser = require("body-parser");
 
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
@@ -25,37 +24,34 @@ app.use('/static', express.static('public', {
 // Routers imports
 const publicRouter = require("./router/public");
 const authRouter = require("./router/auth")
-const database = require("./config/databaseConfig")
 const errorsRouter = require('./router/errors');
 
 // Middlewares
 app.use(express.json()); // this is bodyParser
+
+
+// create Request counter
+let totalRequests = 0; // Global request counter
+let rootRequests = 0;  // Tracks requests to the "/" route
+
+
+app.get("/", (req, res, next) => {
+  rootRequests++;
+  next();
+});
 
 // Router usage
 app.use(authRouter);
 app.use(publicRouter);
 
 
+// Route to render the req.ejs page
+app.get("/req", (req, res) => {
+  res.render("req", { totalRequests, rootRequests });
+});
+
 // keep errors router the last
 app.use(errorsRouter);
-
-
-// connect to database
-app.get("/database", async(req, res) => {
-
-  try {
-    const result = await database.query(`SELECT * FROM users`);
-    console.log(result.rows);
-    
-  } catch (error) {
-    console.error("Error while connecting to the database", error);
-    res.status(500).render("errors/serverError", {
-      title: "500 Internal Server Error",
-      message: "Oops! Something went wrong on our end.",
-      suggestion: "Please try again later or go back to the homepage."
-  });
-  }
-})
 
 const port = process.env.PORT
 // Start the server

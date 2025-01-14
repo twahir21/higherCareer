@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <title>Request Tracker</title>
+  <style>
+    body {
+      font-family: 'Poppins';
+      background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ffffff;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .counter-box {
+      display: inline-block;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px 30px;
+      margin: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .counter-box:hover {
+      transform: scale(1.05);
+    }
+
+    .counter-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #4682b4;
+    }
+
+    .counter-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .req-footer {
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+    .req-footer p{
+        font-size: 1.1rem;
+        font-weight: 700;
+        font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+    <%- include("./includes/nav.ejs") %>
+  <div class="container">
+    <h1>Express Server Request Tracker</h1>
+
+
+    <div class="counter-box">
+      <div class="counter-title">Requests to the Root Route ("/")</div>
+      <div id="rootCounter" class="counter-number">0</div>
+    </div>
+
+    <div hidden>
+        <p id="rootRequests"><%= rootRequests %></p>
+      </div>
+    
+      <footer class="req-footer">
+        <p><i>Built with ❤️ using Express.js by Twahir Sudy</i></p>
+      </footer>
+  </div>
+
+
+
+  <%- include("./includes/footer.ejs") %>
+
+  <script>
+    const rootRequestsValue = document.getElementById("rootRequests");
+
+
+    // Animation for counting numbers
+    function animateCounter(id, target) {
+      let count = 0;
+      const step = Math.ceil(target / 100); // Increment steps for animation
+      const interval = setInterval(() => {
+        count += step;
+        if (count >= target) {
+          count = target;
+          clearInterval(interval);
+        }
+        document.getElementById(id).textContent = count;
+      }, 25); // Update every 25ms for a smooth effect
+    }
+
+    // Animate counters
+    const rootRequests = Number(rootRequestsValue.innerHTML);
+    animateCounter("rootCounter", rootRequests);
+  </script>
+</body>
+</html>

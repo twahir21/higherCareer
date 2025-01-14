@@ -1,17 +1,17 @@
-const session = require("express-session")
+const session = require("express-session");
 const dotenv = require("dotenv");
+
 dotenv.config();
-// Set up session middleware
+
 const sessionMiddleware = session({
   secret: process.env.session_key,
   resave: false,
   saveUninitialized: true,
   cookie: { 
-    maxAge: 60000,    // 1 minute session expiration
-    secure: false,  // set true if in https
-    httpOnly: true,  // Prevent JavaScript from accessing cookies
+    maxAge: 24 * 60 * 60 * 1000, // 1-day session expiration
+    secure: false,              // Set true if using HTTPS
+    httpOnly: true,             // Prevent JavaScript access to cookies
   }, 
-})
-
+});
 
 module.exports = sessionMiddleware;
