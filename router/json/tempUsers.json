@@ -1,15 +1,1 @@
-[
-  {
-    "username": "admin2",
-    "password": "$2a$10$HYinrAt5mQa5scXNio1i5uM8/9fxivZpgxOXA6u.lSA.mnqJfPqwO",
-    "fullName": "admin juma",
-    "email": "mimi@gmail.com",
-    "tel": "+255745628991",
-    "relationship": "parent",
-    "student_fullName": "alskd",
-    "student_class": "standard5",
-    "isApproved": false,
-    "isVerified": false,
-    "createdAt": "2025-01-11T12:26:30.964Z"
-  }
-]
+[]

@@ -82,16 +82,7 @@
 
 
 
-        // Real-time Chat (Simplified Example)
-        $('#sendMessage').on('click', function() {
-            const message = $('#chatMessage').val();
-            if (message.trim() !== '') {
-                const messageHtml = `<div class="chat-message my-message">${message}</div>`;
-                $('#chatWindow').append(messageHtml);
-                $('#chatMessage').val('');
-                $('#chatWindow').scrollTop($('#chatWindow')[0].scrollHeight);
-            }
-        });
+
 
         // Recent Announcements Animation
         $('.announcement-item').hover(

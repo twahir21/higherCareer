@@ -1,11 +1,13 @@
 const crypto = require('crypto');
+const nodemailer = require('nodemailer');
+
+const dotenv = require("dotenv")
+dotenv.config();
 
 function generateOtp() {
     return crypto.randomInt(100000, 999999).toString(); // 6-digit OTP
 }
 
-// save to database and send email
-const nodemailer = require('nodemailer');
 
 async function sendOtp(userId, email) {
     const otpCode = generateOtp();
@@ -27,8 +29,8 @@ async function sendOtp(userId, email) {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'your-email@gmail.com',
-                pass: 'your-password',
+                user: process.env.email,
+                pass: process.env.email-pswd,
             },
         });
 

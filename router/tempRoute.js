@@ -152,6 +152,7 @@ async function insertIntoTeacherDB(user) {
     }
 }
 
+
 // DELETE route to delete a user by username
 router.delete('/api/users/:username', async (req, res) => {
     const { username } = req.params;
