@@ -99,9 +99,11 @@ fetch('/admin')
   .then(response => {
     if (response.status === 401) {
       Swal.fire({
-        icon: 'error',
+        icon: 'info',
         title: 'Session Expired',
         text: 'Your session has expired. Please log in again.',
+        showConfirmButton: false,
+        timer: 1500
       }).then(() => {
         window.location.href = '/login'; // Redirect to login page
       });
