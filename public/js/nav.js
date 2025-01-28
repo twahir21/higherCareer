@@ -83,3 +83,38 @@ window.addEventListener('scroll', () => {
     const scrollPercentage = (scrollTop / scrollHeight) * 100;
     progressBar.style.width = `${scrollPercentage}%`;
 });
+
+// Example using Fetch API
+fetch('/admin', {
+    method: 'GET',
+    credentials: 'include' // Include cookies for session tracking
+  })
+    .then((response) => {
+      if (response.status === 401) {
+        return response.json(); // Parse the JSON response
+      }
+      return response;
+    })
+    .then((data) => {
+      if (data.sessionExpired) {
+        // Use SweetAlert2 to display the session expiration message
+        Swal.fire({
+          icon: 'warning',
+          title: 'Session Expired',
+          text: data.message,
+          confirmButtonText: 'Log In',
+          allowOutsideClick: false, // Prevent closing the alert by clicking outside
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Redirect the user to the login page
+            window.location.href = '/login'; // Replace with your login route
+          }
+        });
+      } else {
+        // Handle other responses
+        console.log('Session is active:', data);
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });

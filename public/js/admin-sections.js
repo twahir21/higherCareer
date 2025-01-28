@@ -17,15 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
         showSection('teacherSection');
     });
 
-    document.getElementById('parent').addEventListener('click', function() {
-        showSection('parentSection');
-    });
-
     document.getElementById('student').addEventListener('click', function() {
         showSection('studentSection');
-    });
-    document.getElementById('linking').addEventListener('click', function() {
-        showSection('linkingSection');
     });
 
     document.querySelectorAll('.teacher_profile').forEach(
@@ -35,11 +28,25 @@ document.addEventListener('DOMContentLoaded', function() {
             })
         }
     )
-    document.getElementById('communicationHistory').addEventListener('click', function() {
-        showSection('communicationHistorySection');
-    });
-    document.getElementById('teacherManagement').addEventListener('click', function() {
-        showSection('teacherManagementSection');
+
+    document.querySelectorAll('.parent_profile').forEach(
+        profile => {
+            profile.addEventListener('click', () => {
+                showSection('parentSection');
+            })
+        }
+    )
+
+    document.querySelectorAll('.student_profile').forEach(
+        profile => {
+            profile.addEventListener('click', () => {
+                showSection('studentDetails');
+            })
+        }
+    )
+
+    document.getElementById('classManagement').addEventListener('click', function() {
+        showSection('classManagementSection');
     });
     document.getElementById('attendance').addEventListener('click', function() {
         showSection('attendanceSection');

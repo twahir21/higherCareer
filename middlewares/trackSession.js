@@ -10,7 +10,10 @@ const trackSession = (req, res, next) => {
           console.error('Error destroying session:', err);
           return res.status(500).json({ message: 'Failed to destroy session.' });
         }
-        return res.status(401).json({ message: 'Session expired due to inactivity. Please log in again.' });
+        return res.status(401).json({ 
+          sessionExpired: true,
+          message: 'Session expired due to inactivity. Please log in again.' 
+        });
       });
     } else {
       req.session.lastActivity = now; // Update the last activity timestamp
