@@ -79,6 +79,20 @@ router.get("/admin", isAuthenticated, (req, res) => {
     res.render("components/admin/index", { message: frontUsername });
 });
 
+router.get("/parent", (req, res) => {
+  // let frontUsername = req.session.user.username;
+  // frontUsername = frontUsername.charAt(0).toUpperCase() + frontUsername.slice(1).toLowerCase();
+  res.render("components/parent/index", 
+    { message: 'Parent' }
+  );
+});
+
+router.get("/teacher", isAuthenticated, (req, res) => {
+  let frontUsername = req.session.user.username;
+  frontUsername = frontUsername.charAt(0).toUpperCase() + frontUsername.slice(1).toLowerCase();
+  res.render("components/teacher/index", { message: frontUsername });
+});
+
 
 router.post("/logout", (req, res) => {
     req.session.destroy((err) => {
