@@ -1,10 +1,28 @@
 <!--Verify user Section-->
 <%- include("../layout/verifyUser") %>
 
-        <section id="managementSection" class="content-wrapper" style="display:none;">
+        <section id="teacherSection" class="content-wrapper" style="display:none;">
             <!-- Management Content -->
-            <h1>Management Content</h1>
+            <%- include("../layout/teachers") %>         
         </section>
+
+        <section id="parentSection" class="content-wrapper" style="display:none;">
+            <!-- Management Content -->
+            <h1>Parent Content</h1>
+        </section>
+
+        
+        <section id="teacherProfile" class="content-wrapper" style="display:none;">
+            <!-- Teacher Profile -->
+            <h1>Teacher Profile</h1>
+            <%- include("../layout/teachDet") %>         
+        </section>
+
+        <section id="studentSection" class="content-wrapper" style="display:none;">
+            <!-- Management Content -->
+            <h1>Student Content</h1>
+        </section>
+
         <section id="linkingSection" class="content-wrapper" style="display:none;">
             <!-- Linking Content -->
             <h1>Linking Content</h1>

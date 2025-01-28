@@ -13,12 +13,28 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('verifyUsers').addEventListener('click', function() {
         showSection('verifyUsersSection');
     });
-    document.getElementById('management').addEventListener('click', function() {
-        showSection('managementSection');
+    document.getElementById('teacher').addEventListener('click', function() {
+        showSection('teacherSection');
+    });
+
+    document.getElementById('parent').addEventListener('click', function() {
+        showSection('parentSection');
+    });
+
+    document.getElementById('student').addEventListener('click', function() {
+        showSection('studentSection');
     });
     document.getElementById('linking').addEventListener('click', function() {
         showSection('linkingSection');
     });
+
+    document.querySelectorAll('.teacher_profile').forEach(
+        profile => {
+            profile.addEventListener('click', () => {
+                showSection('teacherProfile');
+            })
+        }
+    )
     document.getElementById('communicationHistory').addEventListener('click', function() {
         showSection('communicationHistorySection');
     });
