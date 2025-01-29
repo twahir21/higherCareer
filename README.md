@@ -1,12 +1,10 @@
-Here’s an updated and more realistic README for your project:  
 
----
 
 # HigherCareer  
 
 **HigherCareer** is a comprehensive school management system designed specifically for primary schools. It includes features like student management, attendance tracking, report generation, and handling joining instructions, among others. The system streamlines administrative tasks, enhances communication, and improves efficiency for school staff, teachers, and parents.  
 
----
+
 
 ## Features  
 
