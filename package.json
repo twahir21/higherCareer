@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "console.log(\"Express is fantastic\")",
-    "start": "node server.js"
+    "start": "node server.js",
+    "twahir": "nodemon server.js"
   },
   "repository": {
     "type": "git",
