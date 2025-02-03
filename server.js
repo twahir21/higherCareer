@@ -56,5 +56,5 @@ app.use(errorsRouter);
 const port = process.env.PORT
 // Start the server
 app.listen(port, () => {
-    console.log('Server running on http://localhost');
+    console.log(`Server running on http://localhost:${port}`);
 });

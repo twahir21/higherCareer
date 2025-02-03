@@ -73,10 +73,10 @@ router.post("/auth/login",
   });
   
 
-router.get("/admin", isAuthenticated, (req, res) => {
-    let frontUsername = req.session.user.username;
-    frontUsername = frontUsername.charAt(0).toUpperCase() + frontUsername.slice(1).toLowerCase();
-    res.render("components/admin/index", { message: frontUsername });
+router.get("/admin", (req, res) => {
+    // let frontUsername = req.session.user.username;
+    // frontUsername = frontUsername.charAt(0).toUpperCase() + frontUsername.slice(1).toLowerCase();
+    res.render("components/admin/index", { message: 'Admin' });
 });
 
 router.get("/parent", (req, res) => {
