@@ -137,15 +137,86 @@ saveButton.addEventListener('click', () => {
   const dataURL = canvas.toDataURL();
 
   img.src = `${dataURL}`;
+  alert('signature saved successfully')
+});
 
-  // you can send that dataurl to the server and decode it to png format
+function validateForm(formId) {
+  const form = document.getElementById(formId);
+  let errors = [];
 
-  // implementing download function
-/*
-  const link = document.createElement('a');
-    link.href = canvas.toDataURL('image/png'); // Set the image format
-    link.download = 'signature.png'; // Set the file name
-    link.click(); // Trigger the download
-*/
+  // Select all required input fields in the form
+  const inputs = form.querySelectorAll('input[required], input[type="text"], input[type="date"], input[type="radio"], input[type="file"]');
+  
+  inputs.forEach(input => {
+      // Check for radio button selection
+      if (input.type === 'radio' && !form.querySelector(`input[name="${input.name}"]:checked`)) {
+          errors.push(`Please select a ${input.name} in form: ${formId}`);
+      }
 
+      // Check if required fields are filled out
+      if (input.required && !input.value.trim()) {
+          errors.push(`Please fill out the ${input.name} field in form: ${formId}`);
+      }
+
+      // Special case for file input (signature image in form-4)
+      if (formId === 'form-4' && input.id === 'image_signature' && !input.src) {
+          errors.push('Please provide a signature in form 4.');
+      }
+  });
+
+  return errors;
+}
+
+
+// handle form submissions
+document.getElementById('nurseryBtn').addEventListener('click', function(event) {
+  event.preventDefault();
+
+  let formsValid = true;
+  let errors = [];
+  let formData = {};
+
+  const forms = ['form-1', 'form-2', 'form-3', 'form-4'];
+
+  forms.forEach(function(formId) {
+      const form = document.getElementById(formId);
+      const formErrors = validateForm(formId);
+      
+      if (formErrors.length > 0) {
+          formsValid = false;
+          errors.push(...formErrors);
+      } else {
+          const formInputs = form.querySelectorAll('input');
+          formInputs.forEach(input => {
+              if (input.name) {
+                  formData[input.name] = input.value;
+              }
+          });
+          formData.signature = img.src;
+      }
+  });
+
+  // If forms are valid, send data to backend
+  if (formsValid) {
+      fetch('/generate-pdf', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ formData })
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              alert("PDF generated successfully.");
+          } else {
+              alert("An error occurred.");
+          }
+      })
+      .catch(error => {
+          alert("Error: " + error.message);
+      });
+  } else {
+      alert("Please fill out all required fields correctly:\n\n" + errors.join('\n'));
+  }
 });

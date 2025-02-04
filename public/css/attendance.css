@@ -3,7 +3,7 @@
     border-radius: 6px;
     padding: 20px 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -59,6 +59,9 @@ option, select{
     margin: 0 8px;
 }
 
+body{
+    min-width: fit-content;
+}
 
 
 table tr:nth-child(2n){

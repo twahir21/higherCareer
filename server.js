@@ -25,6 +25,7 @@ app.use('/static', express.static('public', {
 const publicRouter = require("./router/public");
 const authRouter = require("./router/auth")
 const errorsRouter = require('./router/errors');
+const pdfRouter = require('./router/generatePDF')
 
 // Middlewares
 app.use(express.json()); // this is bodyParser
