@@ -198,6 +198,7 @@ document.getElementById('nurseryBtn').addEventListener('click', function(event) 
 
   // If forms are valid, send data to backend
   if (formsValid) {
+    console.log(formData);
       fetch('/generate-pdf', {
           method: 'POST',
           headers: {
