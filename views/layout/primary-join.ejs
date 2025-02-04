@@ -24,84 +24,83 @@
             <div class="maelezo_binafsi page" id="page-1">
                 <li class="sub-title"><i class="fas fa-user"></i>MAELEZO BINAFSI:</li>
 
-                <form action="#">
-    
+                <!-- Form 1 -->
+                <form action="#" id="form-1">
                     <label for="student_name">
                         JINA LA MWANAFUNZI:
-                        <input type="text">  
+                        <input type="text" id="student_name" name="student_name" required>  
                     </label>
-    
+
                     <label for="birth_date">
                         TAREHE YAKUZALIWA:
-                        <input type="date">
+                        <input type="date" id="birth_date" name="birth_date" required>
                     </label>
-    
+
                     <label for="gender">
                         JINSIA:
-                        <input type="radio" name="gender" value="M/ME"><span class="gender">M/ME</span>
-                        <input type="radio" name="gender" value="M/KE"><span class="gender">M/KE</span>
+                        <input type="radio" name="gender" value="M/ME" id="gender_male"><span class="gender">M/ME</span>
+                        <input type="radio" name="gender" value="M/KE" id="gender_female"><span class="gender">M/KE</span>
                     </label>
-    
-                    <label for="year">
+
+                    <label for="school_name">
                         JINA LA SKULI ANAYOTOKA MWANAFUNZI: 
-                        <input type="text">
+                        <input type="text" id="school_name" name="school_name" required>
                     </label>
-    
-                    <label for="year">
+
+                    <label for="join_year">
                         MWAKA ALIOJIUNGA NA SKULI HIYO: 
-                        <input type="text">
+                        <input type="text" id="join_year" name="join_year" required>
                     </label>
-    
+
                     <label for="class">
                         DARASA ALILOFIKA:
-                        <input type="text">
+                        <input type="text" id="class" name="class" required>
                     </label>
                 </form>
             </div>
 
             <div class="taarifa_mzazi page" id="page-2">
                 <li class="sub-title">TAARIFA ZA MZAZI/MLEZI:</li>
-                <form action="#">
-    
+                <!-- Form 2 -->
+                <form action="#" id="form-2">
                     <label for="parent_name">
                         JINA KAMILI LA MZAZI/MLEZI:
-                        <input type="text">
+                        <input type="text" id="parent_name" name="parent_name" required>
                     </label>
-    
+
                     <label for="home">
                         MAHALA ANAPOISHI MZAZI: 
-                        <input type="text">
+                        <input type="text" id="home" name="home" required>
                     </label>
-    
-    
+
                     <label for="house_no">
                         NAMBARI YA NYUMBA:
-                        <input type="text">
+                        <input type="text" id="house_no" name="house_no" required>
                     </label>
-    
+
                     <label for="phone">
                         NAMBARI YA SIMU YA MZAZI:
-                        <input type="text">
+                        <input type="text" id="phone" name="phone" required>
                     </label>
-    
-                    <label for="phone">
+
+                    <label for="optional_1">
                         AU (sio lazima):
-                        <input type="text">
+                        <input type="text" id="optional_1" name="phone_optional" >
                     </label>
-    
-                    <label for="phone">
+
+                    <label for="optional_2">
                         AU (sio lazima):
-                        <input type="text">
+                        <input type="text" id="optional_2" name="phone_optional_2">
                     </label>
-    
+
                     <label for="date">
                         TAREHE YA KUJAZA FOMU:
-                        <input type="date">
+                        <input type="date" id="fill_date" name="date" required>
                     </label>
-    
-                    <label for="date">
+
+                    <label for="submit_date">
                         TAREHE YA KUTUMA FOMU:
-                        <input type="date">
+                        <input type="date" id="submit_date" name="date_submitted" required>
                     </label>
                 </form>
             </div>
@@ -190,44 +189,48 @@
 
             <div class="fomu-mzazi page" id="page-5">
                 <li class="sub-title">SEHEMU HII INATAKIWA KUJAZWA NA MLEZI / MZAZI:</li>
-                <form action="#">
-                    <label for="name">Mimi,
-                        <input type="text">
+                <!-- Form 3 -->
+                <form action="#" id="form-3">
+                    <label for="form3_name">Mimi,
+                        <input type="text" id="form3_name" name="parent_name" required>
                     </label>
-    
-                    <label for="student_name">
+
+                    <label for="form3_student_name">
                         Mzazi/Mlezi wa:
-                        <input type="text">
+                        <input type="text" id="form3_student_name" name="student_name" required>
                     </label>
-    
+
                     <label for="explanations">
                         Naahidi kwamba, nitalipa Ada zote husika kwa wakati, aidha, naahidi kufuata taratibu zote na kanuni za skuli ya Higher Career Academy pamoja na kuhakikisha kwamba mtoto wangu atahudhuria masomo kwa wakati na nitawajibika kwa kosa lolote la kinidhamu.
+                        <input type="text" name="explanations" required>
                     </label>
-    
-                    <label for="parent_name" class="footer_name">
-                        <input type="text">
+
+                    <label for="form3_parent_name" class="footer_name">
+                        <input type="text" id="form3_parent_name" name="parent_name" required>
                         JINA LA MZAZI
                     </label>
-    
+
                     <label for="signature" class="footer_sign">
                         <div class="signature-container">
-                            <canvas id="signature-pad" width="400" height="150"></canvas>
+                            <canvas id="signature-pad"></canvas>
                             <div class="sahihi">SAHIHI</div>
                             <div class="button">
                                 <button id="clear-button">Futa</button>
                                 <button id="save-button">Hifadhi</button>
                             </div>
                         </div>
-                        
                     </label>
-    
-                    <label for="date" class="footer_date">
-                        <input type="date">
+
+                    <label for="form3_date" class="footer_date">
+                        <input type="date" id="form3_date" name="date" required>
                         TAREHE
                     </label>
-    
-                    <label for="NB:" class="nb">NB:  MALIPO YOTE YALIPWE ISLAMIC BANK PBZ ACCONT NO: 0726551001 JINA: AB HIGHER CAREER ACADEMIC LTD</label>
+
+                    <label for="NB:" class="nb">
+                        NB:  MALIPO YOTE YALIPWE ISLAMIC BANK PBZ ACCONT NO: 0726551001 JINA: AB HIGHER CAREER ACADEMIC LTD
+                    </label>
                 </form>
+
             </div>
 
             <div class="sheria_skuli page" id="page-6">
@@ -349,26 +352,31 @@
             </ol>
         
             <li class="mini-title">AHADI</li>
-            <form action="#">
-                <label for="name" class="ahadi-input">
-                    Mimi, <input type="text">.
+            <!-- Form 4 -->
+            <form action="#" id="form-4">
+                <label for="form4_name" class="ahadi-input">
+                    Mimi, <input type="text" id="form4_name" name="parent_name" required> .
                 </label>
-        
+
                 <label for="explanations" class="ahadi-input">
-                Niko tayari kushirikiana na uongozi wa skuli katika  kumlea kijana wangu, pia niko tayari kumsimamia kufuata muongozo na masharti ya skuli kama yalivyoelezwa 
+                    Niko tayari kushirikiana na uongozi wa skuli katika kumlea kijana wangu, pia niko tayari kumsimamia kufuata muongozo na masharti ya skuli kama yalivyoelezwa 
+                    <input type="text" name="explanations" required>
                 </label>
-        
+
                 <label for="signature" class="footer_sign">
                     <div class="signature-container">
-                        <img id="image_signature" src="" alt="chora sahihi page namba 5">
+                        <img id="image_signature" width="400" height="150" src="" alt="chora sahihi page namba 5">
                         <div class="sahihi">SAHIHI</div>
                     </div>
                 </label>
-        
-                <label for="date">Tarehe <input type="date"></label>
 
-                <button id="primaryBtn">Tuma fomu</button>
+                <label for="form4_date">Tarehe 
+                    <input type="date" id="form4_date" name="date" required>
+                </label>
             </form>
+
+            <!-- Single Submit Button -->
+            <button id="nurseryBtn" class="primaryBtn">Tuma fomu</button>
                 </ol>
             </div>
         </ol>
