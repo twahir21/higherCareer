@@ -50,7 +50,7 @@ Follow these steps to set up **HigherCareer** on your local machine:
 
 6. Open your browser and visit:  
    ```
-   http://localhost:80 
+   http://localhost:3000
    ```  
 
 ---
