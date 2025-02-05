@@ -290,7 +290,8 @@ body {
 
 .primaryBtn:hover{
     cursor: pointer;
-    opacity: .5;
+    opacity: .8;
+    animation-play-state: paused; /* Pauses the animation on hover */
 }
 
 @keyframes glow {

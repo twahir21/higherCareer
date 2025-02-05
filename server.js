@@ -26,6 +26,7 @@ const publicRouter = require("./router/public");
 const authRouter = require("./router/auth")
 const errorsRouter = require('./router/errors');
 const pdfRouter = require('./router/generatePDF');
+const handlePDFRouter = require('./router/handlePDF')
 
 // Middlewares
 app.use(express.json()); // this is bodyParser
@@ -44,6 +45,7 @@ app.get("/", (req, res, next) => {
 // Router usage
 app.use(authRouter);
 app.use(pdfRouter);
+app.use(handlePDFRouter);
 app.use(publicRouter);
 
 
